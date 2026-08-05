@@ -1,0 +1,180 @@
+/* ==========================================================================
+   AI LAB / DESIGN SYSTEM / TOKENS
+   Три шари: primitive -> semantic -> component.
+
+   Світлий холст, картки на 24px, жовтий акцент і темні секції-острови,
+   як на ai-lab.com.ua. Темна тема живе в тому ж семантичному шарі
+   і вмикається класом .theme-dark на будь-якому блоці.
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------- 1. PRIMITIVE */
+
+  --c-canvas: #f2f2f4;
+  --c-surface: #ffffff;
+  --c-line: #e4e4e8;
+
+  --c-ink-900: #0f0f12;   /* темні секції */
+  --c-ink-800: #16171a;   /* темні кнопки й картки */
+  --c-ink-700: #1c1d21;
+  --c-ink-600: #24252a;
+
+  --c-slate-700: #33343b;
+  --c-slate-500: #5a5b63;
+  --c-slate-400: #8a8b93;
+  --c-slate-300: #a8a9b2;
+  --c-slate-200: #c9cad1;
+
+  --c-volt-500: #ffd60a;
+  --c-volt-600: #f0c400;
+  --c-volt-ink: #8a6d00;  /* акцент, який читається на світлому */
+  --c-volt-a10: rgba(255, 214, 10, 0.1);
+  --c-volt-a18: rgba(255, 214, 10, 0.18);
+
+  --grad-chrome: linear-gradient(
+    165deg,
+    #ffffff 0%,
+    #cfcfd4 22%,
+    #6f6f78 46%,
+    #e9e9ee 62%,
+    #8b8b93 82%,
+    #f5f5f7 100%
+  );
+
+  /* Type */
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-3xs: 0.6875rem;
+  --fs-2xs: 0.75rem;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.1875rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --fs-3xl: clamp(1.9rem, 1.1rem + 3.2vw, 3.1rem);
+  --fs-4xl: clamp(1.9rem, 0.95rem + 4vw, 4rem);
+
+  --lh-tight: 1.06;
+  --lh-snug: 1.18;
+  --lh-body: 1.6;
+
+  --tr-tight: -0.03em;
+  --tr-flat: -0.01em;
+  --tr-wide: 0.14em;
+
+  /* Space */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 2.5rem;
+  --sp-8: 3.5rem;
+  --sp-9: 5rem;
+  --sp-10: 7rem;
+
+  /* Radii */
+  --r-xs: 6px;
+  --r-sm: 14px;
+  --r-md: 18px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 140ms;
+  --dur-base: 280ms;
+  --dur-slow: 600ms;
+
+  /* Layout */
+  --wrap: 1180px;
+  --gutter: clamp(1rem, 3.5vw, 2.5rem);
+
+  /* ---------------------------------------------------------------- 2. SEMANTIC (світло) */
+
+  --bg: var(--c-canvas);
+  --surface: var(--c-surface);
+  --surface-2: #fafafb;
+  --surface-inverse: var(--c-ink-800);
+
+  --fg: var(--c-ink-900);
+  --fg-muted: var(--c-slate-500);
+  --fg-faint: var(--c-slate-400);
+  --fg-inverse: #f4f4f6;
+
+  --accent: var(--c-volt-500);
+  --accent-strong: var(--c-volt-600);
+  --accent-ink: var(--c-volt-ink);
+  --accent-fg: var(--c-ink-900);
+
+  --line: var(--c-line);
+  --line-soft: rgba(16, 17, 26, 0.07);
+
+  --sh-card: 0 1px 2px rgba(16, 17, 26, 0.04), 0 8px 24px rgba(16, 17, 26, 0.05);
+  --sh-lift: 0 2px 4px rgba(16, 17, 26, 0.05), 0 18px 44px rgba(16, 17, 26, 0.1);
+  --sh-btn: 0 1px 2px rgba(16, 17, 26, 0.08), 0 10px 24px rgba(16, 17, 26, 0.12);
+  --sh-object: drop-shadow(0 30px 45px rgba(16, 17, 26, 0.22));
+
+  --focus: var(--c-ink-900);
+
+  /* ---------------------------------------------------------------- 3. COMPONENT */
+
+  --btn-radius: var(--r-pill);
+  --btn-pad: 1.05rem 2rem;
+  --btn-dark-bg: var(--c-ink-800);
+  --btn-dark-fg: #f4f4f6;
+  --btn-volt-bg: var(--accent);
+  --btn-volt-fg: var(--accent-fg);
+
+  --card-bg: var(--surface);
+  --card-line: var(--line);
+  --card-radius: var(--r-lg);
+  --card-pad: clamp(1.35rem, 2.5vw, 2rem);
+  --card-shadow: var(--sh-card);
+
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --chip-bg: rgba(16, 17, 26, 0.05);
+  --chip-fg: var(--fg-muted);
+}
+
+/* ---------------------------------------------------------------- Темні острови */
+
+.theme-dark {
+  --bg: var(--c-ink-900);
+  --surface: var(--c-ink-800);
+  --surface-2: var(--c-ink-700);
+  --surface-inverse: var(--c-surface);
+
+  --fg: #f4f4f6;
+  --fg-muted: var(--c-slate-300);
+  --fg-faint: #75767e;
+  --fg-inverse: var(--c-ink-900);
+
+  --accent-ink: var(--c-volt-500);
+
+  --line: rgba(255, 255, 255, 0.09);
+  --line-soft: rgba(255, 255, 255, 0.06);
+
+  --sh-card: none;
+  --sh-lift: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --sh-btn: none;
+  --sh-object: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.6));
+
+  --focus: var(--c-volt-500);
+
+  --btn-dark-bg: #ffffff;
+  --btn-dark-fg: var(--c-ink-900);
+
+  --card-bg: var(--surface);
+  --card-line: var(--line);
+
+  --chip-bg: rgba(255, 255, 255, 0.07);
+  --chip-fg: var(--fg-muted);
+
+  background: var(--bg);
+  color: var(--fg);
+}
