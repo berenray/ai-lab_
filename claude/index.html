@@ -1,530 +1,183 @@
-<!doctype html>
-<html lang="uk">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Курс по Claude: опануй Claude за тиждень</title>
-<meta name="description" content="За 7 днів налаштуєш Claude під себе, навчишся створювати сайти, побудуєш контент-завод і прибереш більшу частину рутини зі свого життя. 9 модулів, тарифи від 39 €.">
-<meta property="og:title" content="Курс по Claude: опануй Claude за тиждень">
-<meta property="og:description" content="Claude уже вміє більшість того, що ти досі робиш руками. Лишилося делегувати це йому.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#f2f2f4">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ffd60a'/><text x='16' y='23' font-size='20' text-anchor='middle' fill='%230f0f12' font-family='sans-serif' font-weight='bold'>A</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/tokens.css">
-<link rel="stylesheet" href="../assets/css/main.css">
-<script>document.documentElement.classList.add('js');</script>
-</head>
-<body>
+<!DOCTYPE html><html lang="uk"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Astro v7.0.6"><title>Курс по Claude — опануй Claude за тиждень</title><meta name="description" content="За 7 днів налаштуєш Claude під себе, навчишся створювати сайти, побудуєш контент-завод і прибереш більшу частину рутини зі свого життя."><meta name="theme-color" content="#f2f2f4"><meta property="og:type" content="website"><meta property="og:title" content="Курс по Claude — опануй Claude за тиждень"><meta property="og:description" content="За 7 днів налаштуєш Claude під себе, навчишся створювати сайти, побудуєш контент-завод і прибереш більшу частину рутини зі свого життя."><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/logo.png" type="image/png"><script>
+      document.documentElement.classList.add('js');
+    </script><link rel="stylesheet" href="/_astro/index.Bbbc_AMy.css"></head> <body> <a class="skip-link" href="#main">Skip to content</a>  <header class="nav" data-nav data-astro-cid-wpvy4v7s> <div class="container nav__inner" data-astro-cid-wpvy4v7s> <a class="nav__brand" href="#top" aria-label="AI LAB" data-astro-cid-wpvy4v7s> <img class="nav__logo" src="/logo.png" alt="" width="409" height="409" data-astro-cid-wpvy4v7s> <span class="nav__brand-text" data-astro-cid-wpvy4v7s>AI LAB</span> </a> <span class="nav__notice" data-astro-cid-wpvy4v7s>Старт одразу</span> <div class="nav__actions" data-astro-cid-wpvy4v7s> <a class="btn btn--ghost nav__btn" href="https://t.me/vlad_ushakov_ai" target="_blank" rel="noopener noreferrer" data-astro-cid-wpvy4v7s>Задати питання</a> <a class="btn btn--accent nav__btn" href="#pricing" data-astro-cid-wpvy4v7s>Записатись</a> </div> </div> </header> <main id="main"> <section class="hero" id="top" data-astro-cid-ge2uvauf> <canvas class="neural-noise hero__bg" data-neural aria-hidden="true" data-astro-cid-6anh6sxp></canvas> <script>(function(){const color = [0.09,0.1,0.14];
+const opacity = 0.45;
+const speed = 0.0011;
 
-<!-- ============================================================ NAV -->
-<header class="nav">
-  <div class="nav__pill">
-    <a class="logo" href="../">
-      <span class="logo__mark" aria-hidden="true">✳</span>
-      AI Lab
-    </a>
-    <span class="nav__center"><span class="nav__dot" aria-hidden="true"></span><span>Старт одразу</span></span>
-    <div class="nav__right">
-      <nav class="nav__links" aria-label="Основне меню">
-        <a href="#program">Програма</a>
-        <a href="#faq">Питання</a>
-      </nav>
-      <a class="btn btn--volt btn--sm" href="#plans">Записатись</a>
-    </div>
-  </div>
-</header>
+  (() => {
+    const canvas = document.querySelector('canvas[data-neural]:not([data-init])');
+    if (!canvas) return;
+    canvas.setAttribute('data-init', '');
+    canvas.style.opacity = String(opacity);
 
-<main id="top">
+    const gl =
+      canvas.getContext('webgl', { premultipliedAlpha: false, antialias: true }) ||
+      canvas.getContext('experimental-webgl');
+    if (!gl) return; // graceful fallback: light hero background stays as-is
 
-<!-- ============================================================ HERO -->
-<section class="hero">
-  <div class="hero__decor" aria-hidden="true">
-    <img class="decor--left" src="../assets/img/terminal.webp" alt="" width="340" height="371">
-    <img class="decor--right" src="../assets/img/diamond.webp" alt="" width="380" height="247">
-  </div>
-  <div class="wrap hero__inner">
-    <p class="eyebrow">Курс по Claude · AI School 2026</p>
-    <h1 class="h-display hero__title">Опануй Claude за тиждень <span class="mark">краще, ніж 99%</span> людей</h1>
-    <p class="lede hero__lede">За 7 днів налаштуєш Claude під себе, навчишся створювати сайти, побудуєш контент-завод і прибереш більшу частину рутини зі свого життя.</p>
-    <a class="btn btn--volt" href="#plans">Зайняти місце <span class="btn__arrow" aria-hidden="true">→</span></a>
-  </div>
-</section>
+    const vsSource = `
+      precision mediump float;
+      varying vec2 vUv;
+      attribute vec2 a_position;
+      void main() {
+        vUv = 0.5 * (a_position + 1.0);
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }
+    `;
+    const fsSource = `
+      precision mediump float;
+      varying vec2 vUv;
+      uniform float u_time;
+      uniform float u_ratio;
+      uniform vec2 u_pointer_position;
+      uniform vec3 u_color;
+      uniform float u_speed;
+      vec2 rotate(vec2 uv, float th) {
+        return mat2(cos(th), sin(th), -sin(th), cos(th)) * uv;
+      }
+      float neuro_shape(vec2 uv, float t, float p) {
+        vec2 sine_acc = vec2(0.0);
+        vec2 res = vec2(0.0);
+        float scale = 8.0;
+        for (int j = 0; j < 15; j++) {
+          uv = rotate(uv, 1.0);
+          sine_acc = rotate(sine_acc, 1.0);
+          vec2 layer = uv * scale + float(j) + sine_acc - t;
+          sine_acc += sin(layer) + 2.4 * p;
+          res += (0.5 + 0.5 * cos(layer)) / scale;
+          scale *= 1.2;
+        }
+        return res.x + res.y;
+      }
+      void main() {
+        vec2 uv = 0.5 * vUv;
+        uv.x *= u_ratio;
+        vec2 pointer = vUv - u_pointer_position;
+        pointer.x *= u_ratio;
+        float p = clamp(length(pointer), 0.0, 1.0);
+        p = 0.5 * pow(1.0 - p, 2.0);
+        float t = u_speed * u_time;
+        vec3 col = vec3(0.0);
+        float noise = neuro_shape(uv, t, p);
+        noise = 1.2 * pow(noise, 3.0);
+        noise += pow(noise, 10.0);
+        noise = max(0.0, noise - 0.5);
+        noise *= (1.0 - length(vUv - 0.5));
+        col = u_color * noise;
+        gl_FragColor = vec4(col, noise);
+      }
+    `;
 
-<!-- ============================================================ ЦИФРИ -->
-<section class="section" style="padding-top:0">
-  <div class="wrap reveal">
-    <div class="stats">
-      <div class="stat">
-        <div class="stat__value">500+</div>
-        <div class="stat__label">задоволених студентів</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value">9.8 з 10</div>
-        <div class="stat__label">середня оцінка</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value">4 роки</div>
-        <div class="stat__label">в AI</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value">30+</div>
-        <div class="stat__label">публічних виступів</div>
-      </div>
-    </div>
-  </div>
-</section>
+    const compile = (src, type) => {
+      const sh = gl.createShader(type);
+      gl.shaderSource(sh, src);
+      gl.compileShader(sh);
+      if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+        console.error('Shader compile error:', gl.getShaderInfoLog(sh));
+        gl.deleteShader(sh);
+        return null;
+      }
+      return sh;
+    };
 
-<!-- ============================================================ БОЛІ -->
-<section class="section slab theme-dark">
-  <div class="wrap reveal">
-    <h2 class="pains__title">Якщо ти відчуваєш, що:</h2>
-    <div class="grid grid--4">
-      <div class="pain" data-n="01">Усі вже використовують AI, а ти ні</div>
-      <div class="pain" data-n="02">Щось пробував, але нічого не вийшло</div>
-      <div class="pain" data-n="03">Думаєш, що це складно, і не починаєш</div>
-      <div class="pain" data-n="04">Купа інструментів, і незрозуміло, з чого почати</div>
-    </div>
-    <p class="pains__closer">Тоді цей курс <span class="volt">точно для тебе</span></p>
-  </div>
-</section>
+    const vs = compile(vsSource, gl.VERTEX_SHADER);
+    const fs = compile(fsSource, gl.FRAGMENT_SHADER);
+    if (!vs || !fs) return;
+    const program = gl.createProgram();
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.error('Program link error:', gl.getProgramInfoLog(program));
+      return;
+    }
 
-<!-- ============================================================ ДЛЯ КОГО -->
-<section class="section">
-  <div class="wrap reveal">
-    <div class="section__head">
-      <h2 class="h-section">Для кого цей курс</h2>
-      <p class="lede">Знайди свою ситуацію. Швидше за все, вона описує твій звичайний робочий тиждень.</p>
-    </div>
+    const uniforms = {};
+    const count = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
+    for (let i = 0; i < count; i++) {
+      const name = gl.getActiveUniform(program, i).name;
+      uniforms[name] = gl.getUniformLocation(program, name);
+    }
 
-    <div class="grid grid--3">
-      <article class="card who">
-        <span class="who__rule" aria-hidden="true"></span>
-        <h3 class="h-card">Фрілансер</h3>
-        <p class="who__text">Тиждень на те, що можна було зробити за вечір. Клієнт бачить тільки результат і платить як завжди, скільки б ти над ним не сидів.</p>
-      </article>
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    gl.useProgram(program);
+    const posLoc = gl.getAttribLocation(program, 'a_position');
+    gl.enableVertexAttribArray(posLoc);
+    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
 
-      <article class="card who">
-        <span class="who__rule" aria-hidden="true"></span>
-        <h3 class="h-card">Підприємець</h3>
-        <p class="who__text">Гіпотезу перевіряєш квартал: лендинг у підрядника, тексти в копірайтера, і все це чекає своєї черги. На стратегію часу не лишається.</p>
-      </article>
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.uniform3f(uniforms.u_color, color[0], color[1], color[2]);
+    gl.uniform1f(uniforms.u_speed, speed);
 
-      <article class="card who">
-        <span class="who__rule" aria-hidden="true"></span>
-        <h3 class="h-card">Маркетолог</h3>
-        <p class="who__text">Креативів треба вчора і вдесятеро більше, ніж встигаєш. Звіт збираєш руками, а KPI тобі ніхто не зменшив.</p>
-      </article>
+    // pointer in normalized canvas space (0..1)
+    const pointer = { x: 0.5, y: 0.5, tX: 0.5, tY: 0.5 };
+    const onMove = (cx, cy) => {
+      const r = canvas.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      pointer.tX = Math.min(Math.max((cx - r.left) / r.width, 0), 1);
+      pointer.tY = 1 - Math.min(Math.max((cy - r.top) / r.height, 0), 1);
+    };
+    const pm = (e) => onMove(e.clientX, e.clientY);
+    const tm = (e) => e.targetTouches[0] && onMove(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
+    window.addEventListener('pointermove', pm, { passive: true });
+    window.addEventListener('touchmove', tm, { passive: true });
 
-      <article class="card who">
-        <span class="who__rule" aria-hidden="true"></span>
-        <h3 class="h-card">Експерт</h3>
-        <p class="who__text">Психолог, коуч, нутриціолог чи юрист. Свою справу знаєш, а упаковувати її нема коли: лендинг, тексти й воронка роками стоять у планах.</p>
-      </article>
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const resize = () => {
+      const r = canvas.getBoundingClientRect();
+      canvas.width = Math.max(1, Math.round(r.width * dpr));
+      canvas.height = Math.max(1, Math.round(r.height * dpr));
+      if (uniforms.u_ratio) gl.uniform1f(uniforms.u_ratio, canvas.width / canvas.height);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    };
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
 
-      <article class="card who">
-        <span class="who__rule" aria-hidden="true"></span>
-        <h3 class="h-card">SMM-менеджер</h3>
-        <p class="who__text">Кілька проєктів одночасно, і кожен хоче свій формат. Контент-план зʼїдає цілий день, а до вечора виявляється, що пости так і не вийшли.</p>
-      </article>
+    const draw = (time) => {
+      pointer.x += (pointer.tX - pointer.x) * 0.15;
+      pointer.y += (pointer.tY - pointer.y) * 0.15;
+      gl.uniform1f(uniforms.u_time, time);
+      gl.uniform2f(uniforms.u_pointer_position, pointer.x, pointer.y);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    };
 
-      <article class="card who">
-        <span class="who__rule" aria-hidden="true"></span>
-        <h3 class="h-card">Найманий працівник</h3>
-        <p class="who__text">Робиш те саме, що й три роки тому. AI у компанії не впроваджує ніхто, бо нема кому, і тебе це вже почало турбувати.</p>
-      </article>
-    </div>
-  </div>
-</section>
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      draw(6000); // single static frame
+      return;
+    }
 
-<!-- ============================================================ НА КУРСІ ТИ -->
-<section class="section">
-  <div class="wrap reveal">
-    <div class="section__head">
-      <h2 class="h-section">На курсі ти</h2>
-    </div>
+    let rafId = 0;
+    let running = false;
+    const loop = () => {
+      draw(performance.now());
+      rafId = requestAnimationFrame(loop);
+    };
+    const start = () => {
+      if (running) return;
+      running = true;
+      loop();
+    };
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(rafId);
+    };
 
-    <div class="bento">
-      <article class="card bento__item bento__item--hero theme-dark">
-        <h3 class="h-card">Налаштуєш Claude під себе</h3>
-        <span class="bento__rule" aria-hidden="true"></span>
-        <p class="bento__text">Проєкти, стиль та інструкції, щоб він відповідав як ти, а не як звичайний чат-бот.</p>
-      </article>
-
-      <article class="card bento__item">
-        <h3 class="h-card">Автоматизуєш рутину</h3>
-        <p class="bento__text">Розсилки, парсинг, таблиці, що рахують себе самі. Те, на що йшли години, робиться саме собою.</p>
-      </article>
-
-      <article class="card bento__item">
-        <h3 class="h-card">Створиш свого AI-агента</h3>
-        <p class="bento__text">Який бере на себе робочі задачі і працює за тебе.</p>
-      </article>
-
-      <article class="card bento__item">
-        <h3 class="h-card">Налаштуєш контент-машину</h3>
-        <p class="bento__text">Пости, сторіс, сценарії та каруселі пачками і під твій стиль.</p>
-      </article>
-
-      <article class="card bento__item">
-        <h3 class="h-card">Збереш сайти з нуля</h3>
-        <p class="bento__text">Професійні сайти без коду, від першої сторінки до готового проєкту.</p>
-      </article>
-
-      <article class="card bento__item bento__item--wide">
-        <h3 class="h-card">Проведеш аналіз конкурентів</h3>
-        <p class="bento__text">Розбір аудиторії та конкурентів на реальних даних, а не на здогадках і відчуттях.</p>
-      </article>
-
-      <article class="card bento__item">
-        <h3 class="h-card">Налаштуєш другий мозок</h3>
-        <p class="bento__text">Усі матеріали, файли та дзвінки в одній системі. Нічого не губиться.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ СТРУКТУРА КУРСУ -->
-<section class="section slab theme-dark" id="program">
-  <div class="wrap reveal">
-    <div class="section__head">
-      <h2 class="h-section">Структура курсу</h2>
-      <p class="lede">9 модулів: від інтерфейсу та промптингу до фінального проєкту під твою роль.</p>
-    </div>
-
-    <div class="modules">
-
-      <article class="module">
-        <div class="module__n">01</div>
-        <div>
-          <p class="module__label">Модуль 01</p>
-          <h3 class="module__title">Основи та інтерфейс</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">Маєш налаштований акаунт і повністю розумієш інтерфейс та ключові фішки Claude.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="module">
-        <div class="module__n">02</div>
-        <div>
-          <p class="module__label">Модуль 02</p>
-          <h3 class="module__title">Промпт-інженіринг</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">Розумієш, як писати до LLM так, щоб отримувати саме те, що тобі потрібно.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="module">
-        <div class="module__n">03</div>
-        <div>
-          <p class="module__label">Модуль 03</p>
-          <h3 class="module__title">Налаштування Projects</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">У тебе окремий Claude-проєкт під кожен напрямок: контент, продажі, особистий бренд, клієнти. У кожному зберігається свій контекст про бізнес, аудиторію та офери.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="module">
-        <div class="module__n">04</div>
-        <div>
-          <p class="module__label">Модуль 04</p>
-          <h3 class="module__title">Use Cases</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">Набір готових сценаріїв на щодень: контент, аналіз, сайт, звіти, підготовка до зустрічей і швидкі рішення.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="module">
-        <div class="module__n">05</div>
-        <div>
-          <p class="module__label">Модуль 05</p>
-          <h3 class="module__title">Просунуте використання зі Skills</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">Створюєш власні Skills, які роблять за тебе презентації, тексти у твоєму стилі, шаблони документів і базові дизайн-елементи.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="module">
-        <div class="module__n">06</div>
-        <div>
-          <p class="module__label">Модуль 06</p>
-          <h3 class="module__title">Connectors / MCP</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">Підключаєш Claude до Gmail, Google Drive, Notion і календаря, щоб він працював прямо всередині них.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="module">
-        <div class="module__n">07</div>
-        <div>
-          <p class="module__label">Модуль 07</p>
-          <h3 class="module__title">Claude Cowork</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">Використовуєш Claude як робочого помічника для файлів: аналіз документів, PDF, таблиці, звіти й матеріали для команди.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="module">
-        <div class="module__n">08</div>
-        <div>
-          <p class="module__label">Модуль 08</p>
-          <h3 class="module__title">Claude Code</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">Створюєш сайти будь-якої складності без технічних навичок.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="module">
-        <div class="module__n">09</div>
-        <div>
-          <p class="module__label">Модуль 09</p>
-          <h3 class="module__title">Фінальні проєкти та другий мозок з Obsidian</h3>
-          <div class="module__result">
-            <span class="module__result-label">Результат</span>
-            <p class="module__result-text">Налаштовуєш фінальні проєкти і збираєш другий мозок через Claude Code та Obsidian, щоб нічого не забувалось.</p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ ХТО ВЕДЕ -->
-<section class="section slab theme-dark">
-  <div class="wrap author reveal">
-    <div class="author__photo">
-      <img src="../assets/img/vlad.webp" alt="Влад Ушаков" width="380" height="413" loading="lazy">
-    </div>
-    <div class="author__body">
-      <p class="eyebrow" style="margin:0">Хто веде</p>
-      <h2 class="h-section" style="margin:0">Влад Ушаков</h2>
-      <p class="lede">Засновник школи AI-професій AI Lab із понад 500 випускниками і власник компанії SmartFlow, яка впроваджує AI у бізнес-процеси.</p>
-      <p class="body-text">Запрошений експерт у Genius, Dia Business, YBC, The Dvizh, TRC, UDC, Rise, Bizon та інших. Claude використовую щодня у власних проєктах, тому на курсі показую робочі схеми, а не демо з презентацій.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ БОНУСИ -->
-<section class="section">
-  <div class="wrap reveal">
-    <div class="section__head section__head--center">
-      <h2 class="h-section">Бонуси при покупці до:</h2>
-    </div>
-
-    <div class="timer" id="timer" data-deadline="2026-08-12T23:59:59">
-      <div class="timer__cell"><div class="timer__num" data-unit="days">00</div><div class="timer__unit">днів</div></div>
-      <div class="timer__sep" aria-hidden="true">:</div>
-      <div class="timer__cell"><div class="timer__num" data-unit="hours">00</div><div class="timer__unit">годин</div></div>
-      <div class="timer__sep" aria-hidden="true">:</div>
-      <div class="timer__cell"><div class="timer__num" data-unit="minutes">00</div><div class="timer__unit">хвилин</div></div>
-      <div class="timer__sep" aria-hidden="true">:</div>
-      <div class="timer__cell"><div class="timer__num" data-unit="seconds">00</div><div class="timer__unit">секунд</div></div>
-    </div>
-    <p class="timer__deadline">до 12 серпня</p>
-
-    <div class="grid grid--3">
-      <div class="card bonus">
-        <div class="bonus__value">50+</div>
-        <p class="bonus__text">топових скілів для Claude</p>
-      </div>
-      <div class="card bonus">
-        <div class="bonus__value">Промпти</div>
-        <p class="bonus__text">бібліотека промптів від розробника Claude Code: готові шаблони під різні задачі</p>
-      </div>
-      <div class="card bonus">
-        <div class="bonus__value">30</div>
-        <p class="bonus__text">життєвих юзкейсів використання Claude для різних сфер</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ ТАРИФИ -->
-<section class="section" id="plans">
-  <div class="wrap reveal">
-    <div class="section__head">
-      <h2 class="h-section">Тарифи</h2>
-      <p class="lede">Два формати участі. Обери свій.</p>
-    </div>
-
-    <div class="plans plans--two">
-
-      <!-- BASIC -->
-      <article class="card plan">
-        <div>
-          <p class="plan__label">Тариф</p>
-          <h3 class="plan__name">Basic</h3>
-        </div>
-        <ul class="plan__list">
-          <li>Модуль 01 · Основи та інтерфейс</li>
-          <li>Модуль 02 · Промпт-інженіринг</li>
-          <li>Модуль 03 · Налаштування Projects</li>
-          <li>Модуль 04 · Use Cases</li>
-          <li>Модуль 05 · Просунуте використання зі Skills</li>
-          <li>Модуль 06 · Connectors / MCP</li>
-          <li class="is-off">Модуль 07 · Claude Cowork</li>
-          <li class="is-off">Модуль 08 · Claude Code</li>
-          <li class="is-off">Модуль 09 · Фінальні проєкти та другий мозок</li>
-          <li class="is-off">Сертифікат про проходження курсу</li>
-          <li class="is-off">Закритий чат потоку</li>
-          <li class="is-off">Домашні завдання</li>
-        </ul>
-        <div class="plan__deal">
-          <div class="plan__deal-label">Знижка</div>
-          <div class="plan__deal-value">−40%</div>
-        </div>
-        <div class="plan__price">
-          <span class="plan__now">39 €</span>
-          <span class="plan__was">65 €</span>
-        </div>
-        <a class="btn btn--dark btn--block" href="#">Придбати курс</a>
-      </article>
-
-      <!-- PREMIUM -->
-      <article class="card plan plan--featured theme-dark">
-        <span class="plan__flag">Рекомендую</span>
-        <div>
-          <p class="plan__label">Тариф</p>
-          <h3 class="plan__name">Premium</h3>
-        </div>
-        <ul class="plan__list">
-          <li>Модуль 01 · Основи та інтерфейс</li>
-          <li>Модуль 02 · Промпт-інженіринг</li>
-          <li>Модуль 03 · Налаштування Projects</li>
-          <li>Модуль 04 · Use Cases</li>
-          <li>Модуль 05 · Просунуте використання зі Skills</li>
-          <li>Модуль 06 · Connectors / MCP</li>
-          <li>Модуль 07 · Claude Cowork</li>
-          <li>Модуль 08 · Claude Code</li>
-          <li>Модуль 09 · Фінальні проєкти та другий мозок</li>
-          <li>Сертифікат про проходження курсу</li>
-          <li>Закритий чат потоку</li>
-          <li>Домашні завдання</li>
-        </ul>
-        <div class="plan__deal">
-          <div class="plan__deal-label">Знижка</div>
-          <div class="plan__deal-value">−40%</div>
-        </div>
-        <div class="plan__price">
-          <span class="plan__now">69 €</span>
-          <span class="plan__was">115 €</span>
-        </div>
-        <a class="btn btn--volt btn--block" href="#">Придбати курс</a>
-      </article>
-
-    </div>
-
-    <p class="plan__note">Для комфортного проходження курсу потрібна підписка Claude Pro від $20/міс, окремо від ціни тарифу.</p>
-  </div>
-</section>
-
-<!-- ============================================================ FAQ -->
-<section class="section" id="faq">
-  <div class="wrap faq reveal">
-    <h2 class="h-section">Питання та відповіді</h2>
-
-    <div class="faq__list">
-      <div class="faq__item">
-        <button class="faq__btn" type="button" aria-expanded="false">
-          Чи треба платна підписка Claude Pro?
-          <span class="faq__sign" aria-hidden="true">+</span>
-        </button>
-        <div class="faq__body"><div class="faq__inner">
-          <p>Для деяких уроків вистачить безкоштовного тарифу, але для Skills, Cowork і Projects потрібен Claude Pro за $20/міс.</p>
-        </div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" type="button" aria-expanded="false">
-          Чи треба технічний бекграунд?
-          <span class="faq__sign" aria-hidden="true">+</span>
-        </button>
-        <div class="faq__body"><div class="faq__inner">
-          <p>Ні. Курс створений для маркетологів, експертів, підприємців і фрілансерів. Ти ставиш задачу звичайними словами, а Claude допомагає з текстами, автоматизаціями, файлами, сайтами й кодом.</p>
-        </div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" type="button" aria-expanded="false">
-          Чи впораюсь, якщо я новачок?
-          <span class="faq__sign" aria-hidden="true">+</span>
-        </button>
-        <div class="faq__body"><div class="faq__inner">
-          <p>Так. Перший модуль починається з нуля: інтерфейс, базові налаштування і перші задачі. Навіть якщо ти раніше не користувався Claude, зможеш поступово пройти весь шлях.</p>
-        </div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" type="button" aria-expanded="false">
-          А якщо в мене вже є ChatGPT / Perplexity / Gemini?
-          <span class="faq__sign" aria-hidden="true">+</span>
-        </button>
-        <div class="faq__body"><div class="faq__inner">
-          <p>Курс сфокусований саме на екосистемі Claude: Projects, Skills, Cowork, Connectors і Claude Code. Ми розбираємо не просто промпти, а повну робочу систему для бізнесу, контенту, файлів, автоматизацій і командної роботи.</p>
-        </div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" type="button" aria-expanded="false">
-          Скільки часу триває курс?
-          <span class="faq__sign" aria-hidden="true">+</span>
-        </button>
-        <div class="faq__body"><div class="faq__inner">
-          <p>Курс у записі, проходь його коли тобі зручно. У середньому достатньо 1 тижня, щоб повністю пройти цей курс.</p>
-        </div></div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__btn" type="button" aria-expanded="false">
-          Скільки зберігається доступ?
-          <span class="faq__sign" aria-hidden="true">+</span>
-        </button>
-        <div class="faq__body"><div class="faq__inner">
-          <p>Доступ зберігається назавжди.</p>
-        </div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ ФІНАЛ -->
-<section class="section" style="padding-top:0">
-  <div class="wrap reveal">
-    <div class="card finale theme-dark">
-      <h2 class="finale__title">Claude уже вміє більшість того, що ти досі робиш руками. <span class="volt">Лишилося делегувати це йому.</span></h2>
-      <a class="btn btn--volt" href="#plans">Придбати курс <span class="btn__arrow" aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <span class="logo"><span class="logo__mark" aria-hidden="true">✳</span> AI Lab</span>
-    <span>Влад Ушаков · AI School 2026</span>
-  </div>
-</footer>
-
-<script src="../assets/js/main.js" defer></script>
-</body>
-</html>
+    // Pause when the hero background scrolls out of view (saves GPU).
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => (entries[0].isIntersecting ? start() : stop()),
+        { threshold: 0 }
+      );
+      io.observe(canvas);
+    } else {
+      start();
+    }
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  })();
+})();</script> <div class="container hero__inner" data-astro-cid-ge2uvauf> <p class="label hero__eyebrow" data-astro-cid-ge2uvauf>   <span data-astro-cid-ge2uvauf>Курс по Claude</span>  </p> <span class="hero__notice" data-astro-cid-ge2uvauf>Старт одразу</span> <h1 class="display hero__title" data-astro-cid-ge2uvauf> Опануй Claude за тиждень  <span class="accent-text" data-astro-cid-ge2uvauf>краще, ніж 99%</span>  людей </h1> <p class="lead hero__descriptor" data-astro-cid-ge2uvauf>За 7 днів налаштуєш Claude під себе, навчишся створювати сайти, побудуєш контент-завод і прибереш більшу частину рутини зі свого життя.</p> <div class="hero__actions" data-astro-cid-ge2uvauf> <a class="btn btn--accent hero__cta" href="#pricing" data-astro-cid-ge2uvauf> Зайняти місце <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" data-astro-cid-ge2uvauf> <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-ge2uvauf></path> </svg> </a>  </div> <dl class="hero__facts reveal" data-stagger data-astro-cid-ge2uvauf> <div class="hero__fact" data-astro-cid-ge2uvauf> <dt class="hero__fact-value" data-astro-cid-ge2uvauf>500+</dt> <dd class="hero__fact-label" data-astro-cid-ge2uvauf>задоволених студентів</dd> </div><div class="hero__fact" data-astro-cid-ge2uvauf> <dt class="hero__fact-value" data-astro-cid-ge2uvauf>9.8 з 10</dt> <dd class="hero__fact-label" data-astro-cid-ge2uvauf>середня оцінка</dd> </div><div class="hero__fact" data-astro-cid-ge2uvauf> <dt class="hero__fact-value" data-astro-cid-ge2uvauf>4 роки</dt> <dd class="hero__fact-label" data-astro-cid-ge2uvauf>в AI</dd> </div><div class="hero__fact" data-astro-cid-ge2uvauf> <dt class="hero__fact-value" data-astro-cid-ge2uvauf>30+</dt> <dd class="hero__fact-label" data-astro-cid-ge2uvauf>публічних виступів</dd> </div> </dl> </div> </section> <section class="section on-dark pains" id="pains" data-astro-cid-tkwetgoh> <div class="container" data-astro-cid-tkwetgoh> <h2 class="display pains__title reveal" data-astro-cid-tkwetgoh>Якщо ти відчуваєш, що:</h2> <ul class="pains__grid reveal" data-stagger data-astro-cid-tkwetgoh> <li class="pain" data-astro-cid-tkwetgoh> <div class="pain__media" data-astro-cid-tkwetgoh> <img class="pain__img" src="/pain-1.png" alt width="688" height="1024" loading="lazy" decoding="async" data-astro-cid-tkwetgoh> </div> <p class="pain__plate" data-astro-cid-tkwetgoh>Всі вже використовують АІ, а ти ні</p> </li><li class="pain pain--low" data-astro-cid-tkwetgoh> <div class="pain__media" data-astro-cid-tkwetgoh> <img class="pain__img" src="/pain-2.png" alt width="688" height="1024" loading="lazy" decoding="async" data-astro-cid-tkwetgoh> </div> <p class="pain__plate" data-astro-cid-tkwetgoh>Щось пробував, але нічого не вийшло</p> </li><li class="pain" data-astro-cid-tkwetgoh> <div class="pain__media" data-astro-cid-tkwetgoh> <img class="pain__img" src="/pain-3.png" alt width="688" height="1024" loading="lazy" decoding="async" data-astro-cid-tkwetgoh> </div> <p class="pain__plate" data-astro-cid-tkwetgoh>Думаєш, що це складно, і не починаєш</p> </li><li class="pain pain--low" data-astro-cid-tkwetgoh> <div class="pain__media" data-astro-cid-tkwetgoh> <img class="pain__img" src="/pain-4.png" alt width="688" height="1024" loading="lazy" decoding="async" data-astro-cid-tkwetgoh> </div> <p class="pain__plate" data-astro-cid-tkwetgoh>Купа інструментів, але не зрозуміло з чого почати</p> </li> </ul> <p class="pains__outro reveal" data-astro-cid-tkwetgoh> Тоді цей курс <span class="pains__outro-accent" data-astro-cid-tkwetgoh>точно для тебе</span> </p> </div> </section> <section class="section audience" id="who" data-astro-cid-vb2rmwub> <div class="container" data-astro-cid-vb2rmwub> <header class="audience__head reveal" data-astro-cid-vb2rmwub> <h2 class="headline" data-astro-cid-vb2rmwub>Для кого цей курс</h2>  </header> <ul class="audience__grid reveal" data-stagger data-astro-cid-vb2rmwub> <li class="audience__card" data-astro-cid-vb2rmwub> <div class="audience__media" data-astro-cid-vb2rmwub> <img class="audience__photo" src="/who-freelancer.png" alt="Фрілансер за компʼютером" width="560" height="560" loading="lazy" decoding="async" data-astro-cid-vb2rmwub> </div> <h3 class="title audience__name" data-astro-cid-vb2rmwub>Фрілансер</h3> <p class="audience__text" data-astro-cid-vb2rmwub>Робиш ту саму роботу за вечір замість тижня: сайти, дизайн, контент. Береш дорожчі замовлення й маєш час на власні проєкти.</p> <span class="audience__rule" aria-hidden="true" data-astro-cid-vb2rmwub></span> </li><li class="audience__card" data-astro-cid-vb2rmwub> <div class="audience__media" data-astro-cid-vb2rmwub> <img class="audience__photo" src="/who-entrepreneur.png" alt="Підприємець з телефоном" width="560" height="560" loading="lazy" decoding="async" data-astro-cid-vb2rmwub> </div> <h3 class="title audience__name" data-astro-cid-vb2rmwub>Підприємець</h3> <p class="audience__text" data-astro-cid-vb2rmwub>Лендинг, контент і автоматизації робиш сам за вечір. Тестуєш гіпотези за тиждень, а не за квартал, і лишаєш час на стратегію.</p> <span class="audience__rule" aria-hidden="true" data-astro-cid-vb2rmwub></span> </li><li class="audience__card" data-astro-cid-vb2rmwub> <div class="audience__media" data-astro-cid-vb2rmwub> <img class="audience__photo" src="/who-marketer.png" alt="Маркетолог" width="560" height="560" loading="lazy" decoding="async" data-astro-cid-vb2rmwub> </div> <h3 class="title audience__name" data-astro-cid-vb2rmwub>Маркетолог</h3> <p class="audience__text" data-astro-cid-vb2rmwub>Тестуєш у 10 разів більше гіпотез: креативи в стилі бренду, дашборди й звіти. Закриваєш KPI у своєму темпі.</p> <span class="audience__rule" aria-hidden="true" data-astro-cid-vb2rmwub></span> </li><li class="audience__card" data-astro-cid-vb2rmwub> <div class="audience__media" data-astro-cid-vb2rmwub> <img class="audience__photo" src="/who-expert.png" alt="Експертка з нотатником" width="560" height="560" loading="lazy" decoding="async" data-astro-cid-vb2rmwub> </div> <h3 class="title audience__name" data-astro-cid-vb2rmwub>Експерт</h3> <p class="audience__text" data-astro-cid-vb2rmwub>Психолог, коуч, нутриціолог чи юрист — упаковуєш свої послуги сам: лендинги, тексти для Reels, воронки й асистент у твоєму стилі.</p> <span class="audience__rule" aria-hidden="true" data-astro-cid-vb2rmwub></span> </li><li class="audience__card" data-astro-cid-vb2rmwub> <div class="audience__media" data-astro-cid-vb2rmwub> <img class="audience__photo" src="/who-smm.png" alt="SMM-менеджерка з телефоном" width="560" height="560" loading="lazy" decoding="async" data-astro-cid-vb2rmwub> </div> <h3 class="title audience__name" data-astro-cid-vb2rmwub>SMM-менеджер</h3> <p class="audience__text" data-astro-cid-vb2rmwub>Ведеш кілька проєктів одночасно й не тонеш у контенті. Один пост — усі формати під кожну площадку, контент-план за пів години.</p> <span class="audience__rule" aria-hidden="true" data-astro-cid-vb2rmwub></span> </li><li class="audience__card" data-astro-cid-vb2rmwub> <div class="audience__media" data-astro-cid-vb2rmwub> <img class="audience__photo" src="/who-employee.png" alt="Найманий працівник за компʼютером" width="560" height="560" loading="lazy" decoding="async" data-astro-cid-vb2rmwub> </div> <h3 class="title audience__name" data-astro-cid-vb2rmwub>Найманий працівник</h3> <p class="audience__text" data-astro-cid-vb2rmwub>Відкриваєш нові можливості для карʼєрного зростання: Claude стає твоїм особистим помічником і бізнес-стратегом.</p> <span class="audience__rule" aria-hidden="true" data-astro-cid-vb2rmwub></span> </li> </ul> </div> </section> <section class="section outcomes" id="outcomes" data-astro-cid-rezlza5h> <div class="container" data-astro-cid-rezlza5h> <header class="outcomes__head reveal" data-astro-cid-rezlza5h> <h2 class="headline" data-astro-cid-rezlza5h>На курсі ти</h2> </header> <ul class="outcomes__grid reveal" data-stagger data-astro-cid-rezlza5h> <li class="outcomes__card is-featured" data-astro-cid-rezlza5h> <h3 class="outcomes__lead" data-astro-cid-rezlza5h>Налаштуєш Claude під себе</h3> <p class="outcomes__text" data-astro-cid-rezlza5h>Проєкти, стиль та інструкції, щоб він відповідав як ти, а не як звичайний чат-бот.</p> </li><li class="outcomes__card" data-astro-cid-rezlza5h> <h3 class="outcomes__lead" data-astro-cid-rezlza5h>Автоматизуєш рутину</h3> <p class="outcomes__text" data-astro-cid-rezlza5h>Розсилки, парсинг, таблиці, що рахують себе самі — те, на що йшли години, робиться саме собою.</p> </li><li class="outcomes__card" data-astro-cid-rezlza5h> <h3 class="outcomes__lead" data-astro-cid-rezlza5h>Створиш свого AI-агента</h3> <p class="outcomes__text" data-astro-cid-rezlza5h>Який бере на себе робочі задачі і працює за тебе.</p> </li><li class="outcomes__card" data-astro-cid-rezlza5h> <h3 class="outcomes__lead" data-astro-cid-rezlza5h>Налаштуєш контент-машину</h3> <p class="outcomes__text" data-astro-cid-rezlza5h>Пости, сторіс, сценарії, каруселі — пачками і під свій стиль.</p> </li><li class="outcomes__card" data-astro-cid-rezlza5h> <h3 class="outcomes__lead" data-astro-cid-rezlza5h>Збереш сайти з нуля</h3> <p class="outcomes__text" data-astro-cid-rezlza5h>Навчишся збирати професійні сайти без коду.</p> </li><li class="outcomes__card" data-astro-cid-rezlza5h> <h3 class="outcomes__lead" data-astro-cid-rezlza5h>Проведеш аналіз конкурентів</h3> <p class="outcomes__text" data-astro-cid-rezlza5h>Розбір аудиторії та конкурентів на реальних даних.</p> </li><li class="outcomes__card" data-astro-cid-rezlza5h> <h3 class="outcomes__lead" data-astro-cid-rezlza5h>Налаштуєш другий мозок</h3> <p class="outcomes__text" data-astro-cid-rezlza5h>Усі матеріали, файли та дзвінки в одній системі — нічого не губиться.</p> </li> </ul> </div> </section> <section class="section on-dark program" id="curriculum" data-astro-cid-3xih677i> <div class="container" data-astro-cid-3xih677i> <header class="program__head reveal" data-astro-cid-3xih677i> <h2 class="headline" data-astro-cid-3xih677i>Структура курсу</h2> <p class="lead" data-astro-cid-3xih677i>9 модулів — від інтерфейсу та промптингу до фінального проєкту під твою роль.</p> </header> <ol class="program__list" data-astro-cid-3xih677i> <li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 01 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 01</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Основи та інтерфейс</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>Маєш налаштований акаунт, повністю розумієш інтерфейс та ключові фішки Claude.</span> </p> </article> </li><li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 02 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 02</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Промпт-інженіринг</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>Розумієш, як писати до LLM так, щоб отримувати саме те, що ти бажаєш.</span> </p> </article> </li><li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 03 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 03</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Налаштування Projects</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>У тебе буде окремий Claude-проєкт під кожен напрямок: контент, продажі, особистий бренд, клієнти чи продукти. У кожному проєкті зберігатиметься потрібний контекст: про бізнес, аудиторію, офери.</span> </p> </article> </li><li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 04 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 04</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Use Cases</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>У тебе буде набір готових сценаріїв, як використовувати Claude у щоденній роботі: для контенту, аналізу, сайту, звітів, підготовки до зустрічей і швидкого прийняття рішень.</span> </p> </article> </li><li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 05 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 05</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Просунуте використання зі Skills</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>Ти навчишся створювати власні Skills для Claude, які автоматизують повторювані задачі: підготовку презентацій, тексти у твоєму стилі, шаблони документів, базові дизайн-елементи та інші процеси, які ти робиш регулярно.</span> </p> </article> </li><li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 06 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 06</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Connectors / MCP</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>Ти зрозумієш, як підключати Claude до різних сервісів: Gmail, Google Drive, Notion і календаря, щоб він міг працювати прямо всередині них.</span> </p> </article> </li><li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 07 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 07</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Claude Cowork</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>Ти зрозумієш, як використовувати Claude як робочого помічника для задач із файлами: аналізувати документи, обробляти PDF, таблиці, звіти й матеріали для команди.</span> </p> </article> </li><li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 08 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 08</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Claude Code</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>Ти вмієш ефективно використовувати Claude Code для створення сайтів будь-якої складності без технічних навичок.</span> </p> </article> </li><li class="program__item reveal" data-astro-cid-3xih677i> <article class="pblock" data-astro-cid-3xih677i> <div class="pblock__top" data-astro-cid-3xih677i> <span class="pblock__num" aria-hidden="true" data-astro-cid-3xih677i> 09 </span> <div class="pblock__heading" data-astro-cid-3xih677i> <span class="label pblock__kicker" data-astro-cid-3xih677i>Модуль 09</span> <h3 class="title pblock__title" data-astro-cid-3xih677i>Фінальні проекти та другий мозок з Obsidian</h3>  </div> </div>  <p class="pblock__result" data-astro-cid-3xih677i> <span class="label pblock__result-label" data-astro-cid-3xih677i>Результат</span> <span data-astro-cid-3xih677i>Налаштовуємо фінальні проекти та створюємо другий мозок за допомогою Claude Code та Obsidian, щоб нічого не забувалось.</span> </p> </article> </li> </ol> </div> </section> <section class="section on-dark speaker" id="instructor" data-astro-cid-4wrmyuho> <div class="container speaker__grid" data-astro-cid-4wrmyuho> <div class="speaker__media reveal" data-astro-cid-4wrmyuho> <img class="speaker__photo" src="/speaker.png" alt="Влад Ушаков, засновник школи AI-професій AI LAB" width="720" height="900" loading="lazy" decoding="async" data-astro-cid-4wrmyuho> </div> <div class="speaker__body reveal" data-stagger data-astro-cid-4wrmyuho> <span class="label speaker__kicker" data-astro-cid-4wrmyuho>Хто веде</span> <h2 class="headline speaker__name" data-astro-cid-4wrmyuho>Влад Ушаков</h2> <p class="speaker__bio" data-astro-cid-4wrmyuho>Засновник школи AI-професій - AI LAB із понад 500 випускниками та власник компанії SmartFlow по впровадженню AI у бізнес-процеси. Запрошений експерт у Genius, Dia Business, YBC, The Dvizh, TRC, UDC, Rise, Bizon та інших.</p> </div> </div> </section> <section class="section bonuses" id="bonuses" data-astro-cid-r45oa6ti> <div class="container" data-astro-cid-r45oa6ti> <header class="bonuses__head reveal" data-astro-cid-r45oa6ti> <h2 class="headline bonuses__title" data-astro-cid-r45oa6ti>Бонуси при покупці до:</h2> <div class="btimer-wrap" data-astro-cid-r45oa6ti> <div class="btimer" data-countdown role="timer" aria-label="Час до завершення пропозиції" data-astro-cid-r45oa6ti> <div class="btimer__cell" data-astro-cid-r45oa6ti> <span class="btimer__num" data-cd-d data-astro-cid-r45oa6ti>00</span> <span class="btimer__unit" data-astro-cid-r45oa6ti>днів</span> </div> <span class="btimer__colon" aria-hidden="true" data-astro-cid-r45oa6ti>:</span> <div class="btimer__cell" data-astro-cid-r45oa6ti> <span class="btimer__num" data-cd-h data-astro-cid-r45oa6ti>00</span> <span class="btimer__unit" data-astro-cid-r45oa6ti>годин</span> </div> <span class="btimer__colon" aria-hidden="true" data-astro-cid-r45oa6ti>:</span> <div class="btimer__cell" data-astro-cid-r45oa6ti> <span class="btimer__num" data-cd-m data-astro-cid-r45oa6ti>00</span> <span class="btimer__unit" data-astro-cid-r45oa6ti>хвилин</span> </div> <span class="btimer__colon" aria-hidden="true" data-astro-cid-r45oa6ti>:</span> <div class="btimer__cell" data-astro-cid-r45oa6ti> <span class="btimer__num" data-cd-s data-astro-cid-r45oa6ti>00</span> <span class="btimer__unit" data-astro-cid-r45oa6ti>секунд</span> </div> </div> <p class="btimer__date" data-astro-cid-r45oa6ti>до <span data-cd-date data-astro-cid-r45oa6ti>—</span></p> </div> </header> <ul class="bonuses__list reveal" data-stagger data-astro-cid-r45oa6ti> <li class="bonus-card" data-astro-cid-r45oa6ti> <span class="bonus-card__big" data-astro-cid-r45oa6ti>50+</span> <p class="bonus-card__text" data-astro-cid-r45oa6ti>  топових скілів для Claude </p> </li><li class="bonus-card" data-astro-cid-r45oa6ti>  <p class="bonus-card__text" data-astro-cid-r45oa6ti>  <span class="bonus-card__lead" data-astro-cid-r45oa6ti>Бібліотека</span>   промптів від розробника Claude Code — готові шаблони промптів під різні задачі. </p> </li><li class="bonus-card" data-astro-cid-r45oa6ti> <span class="bonus-card__big" data-astro-cid-r45oa6ti>30</span> <p class="bonus-card__text" data-astro-cid-r45oa6ti>  життєвих юзкейсів використання Claude для різних сфер </p> </li> </ul> </div> </section> <section class="section pricing" id="pricing" data-astro-cid-htruwgye> <div class="container" data-astro-cid-htruwgye> <header class="pricing__head reveal" data-astro-cid-htruwgye> <h2 class="headline" data-astro-cid-htruwgye>Тарифи</h2> <p class="lead" data-astro-cid-htruwgye>Два формати участі — обери свій.</p> </header> <div class="pricing__grid reveal" data-stagger data-astro-cid-htruwgye> <article class="tier tier--light" data-astro-cid-htruwgye>  <header class="tier__head" data-astro-cid-htruwgye> <span class="label tier__kicker" data-astro-cid-htruwgye>Тариф</span> <h3 class="tier__name" data-astro-cid-htruwgye>Basic</h3> </header> <ul class="tier__points" data-astro-cid-htruwgye> <li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 01 · Основи та інтерфейс</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 02 · Промпт-інженіринг</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 03 · Налаштування Projects</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 04 · Use Cases</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 05 · Просунуте використання зі Skills</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 06 · Connectors / MCP</span> </li><li class="tier__point is-off" data-astro-cid-htruwgye> <svg class="tier__icon tier__icon--off" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 07 · Claude Cowork</span> </li><li class="tier__point is-off" data-astro-cid-htruwgye> <svg class="tier__icon tier__icon--off" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 08 · Claude Code</span> </li><li class="tier__point is-off" data-astro-cid-htruwgye> <svg class="tier__icon tier__icon--off" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 09 · Фінальні проекти та другий мозок з Obsidian</span> </li><li class="tier__point is-off" data-astro-cid-htruwgye> <svg class="tier__icon tier__icon--off" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Сертифікат про проходження курсу</span> </li><li class="tier__point is-off" data-astro-cid-htruwgye> <svg class="tier__icon tier__icon--off" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Закритий чат потоку</span> </li><li class="tier__point is-off" data-astro-cid-htruwgye> <svg class="tier__icon tier__icon--off" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M5 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Домашні завдання</span> </li> </ul> <div class="tier__promo" data-astro-cid-htruwgye> <div class="tier__promo-top" data-astro-cid-htruwgye> <span class="label tier__promo-label" data-astro-cid-htruwgye>Знижка</span> <span class="tier__promo-num" data-astro-cid-htruwgye>−40%</span> </div> <div class="cd" data-countdown role="timer" aria-label="Час до кінця пропозиції" data-astro-cid-htruwgye> <div class="cd__cell" data-astro-cid-htruwgye><span class="cd__num" data-cd-d data-astro-cid-htruwgye>00</span><span class="cd__unit" data-astro-cid-htruwgye>дн</span></div> <span class="cd__sep" aria-hidden="true" data-astro-cid-htruwgye>:</span> <div class="cd__cell" data-astro-cid-htruwgye><span class="cd__num" data-cd-h data-astro-cid-htruwgye>00</span><span class="cd__unit" data-astro-cid-htruwgye>год</span></div> <span class="cd__sep" aria-hidden="true" data-astro-cid-htruwgye>:</span> <div class="cd__cell" data-astro-cid-htruwgye><span class="cd__num" data-cd-m data-astro-cid-htruwgye>00</span><span class="cd__unit" data-astro-cid-htruwgye>хв</span></div> <span class="cd__sep" aria-hidden="true" data-astro-cid-htruwgye>:</span> <div class="cd__cell" data-astro-cid-htruwgye><span class="cd__num" data-cd-s data-astro-cid-htruwgye>00</span><span class="cd__unit" data-astro-cid-htruwgye>сек</span></div> </div> <p class="tier__promo-date" data-astro-cid-htruwgye>до <span data-cd-date data-astro-cid-htruwgye>—</span></p> </div> <div class="tier__pricing" data-astro-cid-htruwgye> <p class="tier__price" data-astro-cid-htruwgye> €39 <span class="tier__price-uah" data-astro-cid-htruwgye>≈ 1990 грн</span> </p> <p class="tier__old" data-astro-cid-htruwgye> <s data-astro-cid-htruwgye>€65</s> <span class="tier__old-uah" data-astro-cid-htruwgye>≈ 3315 грн</span> </p> </div> <a class="btn tier__cta btn--dark" href="https://secure.wayforpay.com/button/b52245d6e3b74" target="_blank" rel="noopener noreferrer" data-cta="basic" data-astro-cid-htruwgye> Придбати курс </a> </article><article class="tier tier--dark tier--featured" data-astro-cid-htruwgye> <span class="tier__ribbon" data-astro-cid-htruwgye>Рекомендую</span> <header class="tier__head" data-astro-cid-htruwgye> <span class="label tier__kicker" data-astro-cid-htruwgye>Тариф</span> <h3 class="tier__name" data-astro-cid-htruwgye>Premium</h3> </header> <ul class="tier__points" data-astro-cid-htruwgye> <li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 01 · Основи та інтерфейс</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 02 · Промпт-інженіринг</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 03 · Налаштування Projects</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 04 · Use Cases</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 05 · Просунуте використання зі Skills</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 06 · Connectors / MCP</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 07 · Claude Cowork</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 08 · Claude Code</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Модуль 09 · Фінальні проекти та другий мозок з Obsidian</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Сертифікат про проходження курсу</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Закритий чат потоку</span> </li><li class="tier__point" data-astro-cid-htruwgye> <svg class="tier__icon tier__check" viewBox="0 0 20 20" fill="none" aria-hidden="true" data-astro-cid-htruwgye> <path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-htruwgye></path> </svg> <span data-astro-cid-htruwgye>Домашні завдання</span> </li> </ul> <div class="tier__promo" data-astro-cid-htruwgye> <div class="tier__promo-top" data-astro-cid-htruwgye> <span class="label tier__promo-label" data-astro-cid-htruwgye>Знижка</span> <span class="tier__promo-num" data-astro-cid-htruwgye>−40%</span> </div> <div class="cd" data-countdown role="timer" aria-label="Час до кінця пропозиції" data-astro-cid-htruwgye> <div class="cd__cell" data-astro-cid-htruwgye><span class="cd__num" data-cd-d data-astro-cid-htruwgye>00</span><span class="cd__unit" data-astro-cid-htruwgye>дн</span></div> <span class="cd__sep" aria-hidden="true" data-astro-cid-htruwgye>:</span> <div class="cd__cell" data-astro-cid-htruwgye><span class="cd__num" data-cd-h data-astro-cid-htruwgye>00</span><span class="cd__unit" data-astro-cid-htruwgye>год</span></div> <span class="cd__sep" aria-hidden="true" data-astro-cid-htruwgye>:</span> <div class="cd__cell" data-astro-cid-htruwgye><span class="cd__num" data-cd-m data-astro-cid-htruwgye>00</span><span class="cd__unit" data-astro-cid-htruwgye>хв</span></div> <span class="cd__sep" aria-hidden="true" data-astro-cid-htruwgye>:</span> <div class="cd__cell" data-astro-cid-htruwgye><span class="cd__num" data-cd-s data-astro-cid-htruwgye>00</span><span class="cd__unit" data-astro-cid-htruwgye>сек</span></div> </div> <p class="tier__promo-date" data-astro-cid-htruwgye>до <span data-cd-date data-astro-cid-htruwgye>—</span></p> </div> <div class="tier__pricing" data-astro-cid-htruwgye> <p class="tier__price" data-astro-cid-htruwgye> €69 <span class="tier__price-uah" data-astro-cid-htruwgye>≈ 3520 грн</span> </p> <p class="tier__old" data-astro-cid-htruwgye> <s data-astro-cid-htruwgye>€115</s> <span class="tier__old-uah" data-astro-cid-htruwgye>≈ 5865 грн</span> </p> </div> <a class="btn tier__cta btn--accent" href="https://secure.wayforpay.com/button/ba2b206d7f58b" target="_blank" rel="noopener noreferrer" data-cta="full" data-astro-cid-htruwgye> Придбати курс </a> </article> </div> <p class="pricing__note reveal" data-astro-cid-htruwgye>
+Для комфортного проходження курсу потрібна підписка Claude Pro від $20/міс (окремо від ціни тарифу).
+</p> </div> </section> <section class="section faq" id="faq" data-astro-cid-hemr5th4> <div class="container faq__grid" data-astro-cid-hemr5th4> <header class="faq__head reveal" data-astro-cid-hemr5th4> <h2 class="headline" data-astro-cid-hemr5th4>Питання та відповіді</h2> </header> <div class="faq__list reveal" data-astro-cid-hemr5th4> <details class="faq__item" name="faq" open data-astro-cid-hemr5th4> <summary class="faq__q" data-astro-cid-hemr5th4> <span data-astro-cid-hemr5th4>Чи треба платна підписка Claude Pro?</span> <span class="faq__icon" aria-hidden="true" data-astro-cid-hemr5th4> <svg viewBox="0 0 24 24" fill="none" data-astro-cid-hemr5th4> <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-hemr5th4></path> </svg> </span> </summary> <div class="faq__a" data-astro-cid-hemr5th4> <p data-astro-cid-hemr5th4>Для деяких уроків вистачить безкоштовного тарифу, але для Skills, Cowork і Projects потрібен Claude Pro за $20/міс.</p> </div> </details><details class="faq__item" name="faq" data-astro-cid-hemr5th4> <summary class="faq__q" data-astro-cid-hemr5th4> <span data-astro-cid-hemr5th4>Чи треба технічний бекграунд?</span> <span class="faq__icon" aria-hidden="true" data-astro-cid-hemr5th4> <svg viewBox="0 0 24 24" fill="none" data-astro-cid-hemr5th4> <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-hemr5th4></path> </svg> </span> </summary> <div class="faq__a" data-astro-cid-hemr5th4> <p data-astro-cid-hemr5th4>Ні. Курс створений для маркетологів, експертів, підприємців і фрилансерів. Ти ставиш задачу звичайними словами, а Claude допомагає з текстами, автоматизаціями, файлами, сайтами й кодом.</p> </div> </details><details class="faq__item" name="faq" data-astro-cid-hemr5th4> <summary class="faq__q" data-astro-cid-hemr5th4> <span data-astro-cid-hemr5th4>Чи впораюсь, якщо я новачок?</span> <span class="faq__icon" aria-hidden="true" data-astro-cid-hemr5th4> <svg viewBox="0 0 24 24" fill="none" data-astro-cid-hemr5th4> <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-hemr5th4></path> </svg> </span> </summary> <div class="faq__a" data-astro-cid-hemr5th4> <p data-astro-cid-hemr5th4>Так. Перший модуль починається з нуля: інтерфейс, базові налаштування і перші задачі. Навіть якщо ти раніше не користувався Claude, зможеш поступово пройти весь шлях.</p> </div> </details><details class="faq__item" name="faq" data-astro-cid-hemr5th4> <summary class="faq__q" data-astro-cid-hemr5th4> <span data-astro-cid-hemr5th4>А якщо в мене вже є ChatGPT / Perplexity / Gemini?</span> <span class="faq__icon" aria-hidden="true" data-astro-cid-hemr5th4> <svg viewBox="0 0 24 24" fill="none" data-astro-cid-hemr5th4> <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-hemr5th4></path> </svg> </span> </summary> <div class="faq__a" data-astro-cid-hemr5th4> <p data-astro-cid-hemr5th4>Курс сфокусований саме на екосистемі Claude: Projects, Skills, Cowork, Connectors і Claude Code. Ми розбираємо не просто промпти, а повну робочу систему для бізнесу, контенту, файлів, автоматизацій і командної роботи.</p> </div> </details><details class="faq__item" name="faq" data-astro-cid-hemr5th4> <summary class="faq__q" data-astro-cid-hemr5th4> <span data-astro-cid-hemr5th4>Скільки часу триває курс?</span> <span class="faq__icon" aria-hidden="true" data-astro-cid-hemr5th4> <svg viewBox="0 0 24 24" fill="none" data-astro-cid-hemr5th4> <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-hemr5th4></path> </svg> </span> </summary> <div class="faq__a" data-astro-cid-hemr5th4> <p data-astro-cid-hemr5th4>Курс у записі — проходь його коли тобі зручно. У середньому достатньо 1 тижня, щоб повністю пройти цей курс.</p> </div> </details><details class="faq__item" name="faq" data-astro-cid-hemr5th4> <summary class="faq__q" data-astro-cid-hemr5th4> <span data-astro-cid-hemr5th4>Скільки зберігається доступ?</span> <span class="faq__icon" aria-hidden="true" data-astro-cid-hemr5th4> <svg viewBox="0 0 24 24" fill="none" data-astro-cid-hemr5th4> <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-astro-cid-hemr5th4></path> </svg> </span> </summary> <div class="faq__a" data-astro-cid-hemr5th4> <p data-astro-cid-hemr5th4>Доступ зберігається назавжди.</p> </div> </details> </div> </div> </section> <section class="section final" data-astro-cid-4zgmmfpt> <div class="container" data-astro-cid-4zgmmfpt> <div class="final__panel on-dark reveal" data-astro-cid-4zgmmfpt>  <h2 class="final__title" data-astro-cid-4zgmmfpt> Claude уже вміє більшість того, що ти досі робиш руками. <span class="final__title-accent" data-astro-cid-4zgmmfpt> Лишилося просто делегувати це йому.</span> </h2> <a class="btn btn--accent final__cta" href="#pricing" data-astro-cid-4zgmmfpt> Придбати курс <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" data-astro-cid-4zgmmfpt> <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-4zgmmfpt></path> </svg> </a> </div> </div> </section> </main> <footer class="footer" data-astro-cid-jo6i4kqk> <div class="container footer__inner" data-astro-cid-jo6i4kqk> <a class="footer__logo" href="#top" aria-label="AI LAB" data-astro-cid-jo6i4kqk> <img class="footer__logo-img" src="/logo.png" alt="" width="409" height="409" data-astro-cid-jo6i4kqk> <span class="footer__logo-text" data-astro-cid-jo6i4kqk>AI LAB</span> </a> <p class="footer__info" data-astro-cid-jo6i4kqk> <span data-astro-cid-jo6i4kqk>Курс по Claude від AI LAB.</span> <span data-astro-cid-jo6i4kqk>© AI LAB. Усі права захищені.</span> </p> </div> </footer>  <script type="module">var e=window.matchMedia(`(prefers-reduced-motion: reduce)`).matches,t=Array.from(document.querySelectorAll(`.reveal`));for(let e of t)e.hasAttribute(`data-stagger`)&&Array.from(e.children).forEach((e,t)=>{e.style.setProperty(`--i`,String(t))});var n=()=>{for(let e of t)e.classList.add(`is-in`)};if(e||!(`IntersectionObserver`in window))n();else{let e=new IntersectionObserver(t=>{for(let n of t)n.isIntersecting&&(n.target.classList.add(`is-in`),e.unobserve(n.target))},{rootMargin:`0px 0px -10% 0px`,threshold:.12});for(let n of t)e.observe(n);let r=window.setTimeout(n,2600);window.addEventListener(`pointerdown`,()=>window.clearTimeout(r),{once:!0})}var r=document.querySelector(`[data-nav]`);if(r){let e=()=>r.classList.toggle(`is-scrolled`,window.scrollY>24);e(),window.addEventListener(`scroll`,e,{passive:!0});let t=Array.from(r.querySelectorAll(`a[data-spy]`)),n=new Map(t.map(e=>[e.getAttribute(`href`).slice(1),e])),i=t.map(e=>document.getElementById(e.getAttribute(`href`).slice(1))).filter(e=>!!e);if(`IntersectionObserver`in window&&i.length){let e=new IntersectionObserver(e=>{for(let r of e)if(r.isIntersecting){for(let e of t)e.classList.remove(`is-active`);n.get(r.target.id)?.classList.add(`is-active`)}},{rootMargin:`-45% 0px -50% 0px`,threshold:0});for(let t of i)e.observe(t)}}var i=document.querySelector(`[data-nav-toggle]`),a=document.querySelector(`[data-nav-menu]`);if(i&&a){let e=e=>{i.setAttribute(`aria-expanded`,String(e)),a.classList.toggle(`is-open`,e),document.body.style.overflow=e?`hidden`:``};i.addEventListener(`click`,()=>e(i.getAttribute(`aria-expanded`)!==`true`)),a.addEventListener(`click`,t=>{t.target.closest(`a`)&&e(!1)}),window.addEventListener(`keydown`,t=>{t.key===`Escape`&&e(!1)})}(()=>{if(!document.querySelectorAll(`[data-countdown]`).length)return;let e=`offer-deadline`,t=[`січня`,`лютого`,`березня`,`квітня`,`травня`,`червня`,`липня`,`серпня`,`вересня`,`жовтня`,`листопада`,`грудня`],n=e=>{let t=new Date(e);return t.setHours(0,0,0,0),t.setDate(t.getDate()+2),t.getTime()-1},r=(()=>{let t=null;try{t=localStorage.getItem(e)}catch{}if(t){let e=parseInt(t,10);if(!Number.isNaN(e))return e}let r=n(new Date);try{localStorage.setItem(e,String(r))}catch{}return r})(),i=e=>String(e).padStart(2,`0`),a=new Date(r),o=`${a.getDate()} ${t[a.getMonth()]}`;document.querySelectorAll(`[data-cd-date]`).forEach(e=>{e.textContent=o});let s=document.querySelectorAll(`[data-cd-d]`),c=document.querySelectorAll(`[data-cd-h]`),l=document.querySelectorAll(`[data-cd-m]`),u=document.querySelectorAll(`[data-cd-s]`),d=(e,t)=>e.forEach(e=>e.textContent=t),f=()=>{let e=Math.max(0,r-Date.now()),t=Math.floor(e/1e3);d(s,i(Math.floor(t/86400))),d(c,i(Math.floor(t%86400/3600))),d(l,i(Math.floor(t%3600/60))),d(u,i(t%60))};f(),setInterval(f,1e3)})();</script></body> </html>
