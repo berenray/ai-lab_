@@ -1147,10 +1147,17 @@ button {
   justify-content: space-between;
 }
 
+/* Роздільник крапкою стоїть у розмітці, а не в CSS: так посилання не злипнуться,
+   навіть якщо стилі ще не підвантажились або віддався закешований файл. */
 .footer__legal {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-2) var(--sp-5);
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-3);
+}
+
+.footer__legal > span {
+  color: var(--fg-faint);
 }
 
 .footer__legal a {
