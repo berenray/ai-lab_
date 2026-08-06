@@ -1147,6 +1147,73 @@ button {
   justify-content: space-between;
 }
 
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+}
+
+.footer__legal a {
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.footer__legal a:hover {
+  color: var(--fg);
+}
+
+/* -------------------------------------------------------------- правові документи */
+
+.doc {
+  max-width: 62rem;
+}
+
+.doc__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 1.1rem + 2vw, 2.6rem);
+  line-height: 1.14;
+  letter-spacing: var(--tr-tight);
+  margin: 0 0 var(--sp-4);
+  max-width: 22ch;
+}
+
+.doc__meta {
+  font-size: var(--fs-sm);
+  color: var(--fg-faint);
+  margin: 0 0 var(--sp-7);
+  padding-bottom: var(--sp-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.doc__body {
+  max-width: 46rem;
+  font-size: var(--fs-sm);
+  line-height: 1.75;
+  color: var(--fg-muted);
+}
+
+.doc__body h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  line-height: 1.25;
+  letter-spacing: var(--tr-flat);
+  color: var(--fg);
+  margin: var(--sp-8) 0 var(--sp-4);
+  scroll-margin-top: 110px;
+}
+
+.doc__body h2:first-child {
+  margin-top: 0;
+}
+
+.doc__body p {
+  margin: 0 0 var(--sp-4);
+}
+
 /* -------------------------------------------------------------- reveal */
 
 .js .reveal {
