@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Сторінка службова: не індексується і не має посилань з основних сайтів -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta content="Заповни анкету, щоб зафіксувати місце з найкращими умовами і бонуси від Влада Ушакова" name="description">
+    <meta content="АНКЕТА ПЕРЕДЗАПИСУ | НАВЧАННЯ AI LAB" property="og:title">
+    <meta content="Заповни анкету, щоб зафіксувати місце з найкращими умовами і бонуси від Влада Ушакова" property="og:description">
+    <meta content="АНКЕТА ПЕРЕДЗАПИСУ | НАВЧАННЯ AI LAB" property="twitter:title">
+    <meta content="Заповни анкету, щоб зафіксувати місце з найкращими умовами і бонуси від Влада Ушакова" property="twitter:description">
+    <meta property="og:type" content="website">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta name="theme-color" content="#f2f2f4">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ffd60a'/><text x='16' y='23' font-size='20' text-anchor='middle' fill='%230f0f12' font-family='sans-serif' font-weight='bold'>A</text></svg>">
+
+    <script src="/anketa-mini/config.js"></script>
+    <script src="/anketa-mini/js/tracking.js"></script>
+    <script src="/anketa-mini/js/form-utils.js" defer></script>
+    <script src="/anketa-mini/js/phone-utils.js" defer></script>
+    <script src="/anketa-mini/js/utm-utils.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.10.14/bundle/libphonenumber-js.min.js" defer></script>
+    <script src="/anketa-mini/index.js" defer></script>
+    <script src="/anketa-mini/js/loader.js"></script>
+
+    <link rel="stylesheet" href="/anketa-mini/loader.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Unbounded:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/anketa-mini/style.css">
+
+    <title>АНКЕТА ПЕРЕДЗАПИСУ | НАВЧАННЯ "AI LAB"</title>
+</head>
+<body>
+  <main>
+    <section class="hero">
+        <div class="top">
+            НАВЧАННЯ "AI LAB"
+        </div>
+        <div class="title">
+            АНКЕТА <br>
+            <span>ПЕРЕДЗАПИСУ</span>
+        </div>
+        <div class="after">
+            Заповни анкету, щоб зафіксувати місце з <br>
+            найкращими умовами і бонуси від Влада Ушакова
+        </div>
+        <img src="/anketa-mini/img/author.webp" alt="" class="mobile">
+        <div class="tooltip">
+            <p>
+                Важливо!
+            </p>
+            <p>
+                Перевіряй правильність введених даних, щоб <br>
+                ми могли зв'язатись з тобою, відповісти на всі <br>
+                питання і розповісти детальніше про навчання
+            </p>
+        </div>
+    </section>
+    <section class="form">
+        <div class="form">
+            <form class="form-card" id="form" novalidate>
+                <input type="hidden" name="SheetName" value="Мінікурс">
+                <input type="hidden" name="utm_source">
+                <input type="hidden" name="utm_campaign">
+                <input type="hidden" name="utm_content">
+                <input type="hidden" name="utm_term">
+                <input type="hidden" name="utm_medium">
+
+                <div class="form-row">
+                    <div class="field-group">
+                        <label class="field-title" for="email">Електронна пошта</label>
+                        <label class="form-card__input-wrap" for="email">
+                            <input id="email" type="email" name="Email" placeholder="" required>
+                        </label>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-title" for="phone">Номер телефону</label>
+                        <label class="form-card__input-wrap" for="phone">
+                            <input id="phone" type="tel" name="Телефон" placeholder="+380" inputmode="tel">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-title" for="telegram">Нік у Telegram</label>
+                    <label class="form-card__input-wrap" for="telegram">
+                        <input id="telegram" type="text" name="Телеграм" placeholder="@" required>
+                    </label>
+                </div>
+
+                <div class="quiz-block">
+                    <div class="quiz-title">Як ти оцінюєш свій рівень знань в AI та автоматизаціях</div>
+
+                    <label class="quiz-item">
+                        <input type="radio" data-segment="beginner" name="Рівень знань" value="Повний новачок – ніколи не працював з AI-інструментами" required checked>
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Повний новачок – ніколи не працював з AI-інструментами</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" data-segment="beginner" name="Рівень знань" value="Чув про AI, трохи пробував, але не вийшло">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Чув про AI, трохи пробував, але не вийшло</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" data-segment="advanced" name="Рівень знань" value="Вже використовую AI в роботі, хочу заробляти на цьому">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Вже використовую AI в роботі, хочу заробляти на цьому</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" data-segment="advanced" name="Рівень знань" value="Є досвід в автоматизаціях, хочу масштабуватись">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Є досвід в автоматизаціях, хочу масштабуватись</span>
+                    </label>
+                </div>
+
+                <div class="quiz-block">
+                    <div class="quiz-title">Який у тебе зараз місячний дохід?</div>
+
+                    <label class="quiz-item">
+                        <input type="radio" data-income="low" name="Місячний дохід" value="до 500$" required>
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">до 500$</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" data-income="low" name="Місячний дохід" value="500$ – 1 000$">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">500$ – 1 000$</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" data-income="high" name="Місячний дохід" value="1 000$ – 2 000$">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">1 000$ – 2 000$</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" data-income="high" name="Місячний дохід" value="більше 2 000$">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">більше 2 000$</span>
+                    </label>
+                </div>
+
+                <div class="quiz-block">
+                    <div class="quiz-title">Яка твоя головна ціль на навчанні?</div>
+
+                    <label class="quiz-item">
+                        <input type="radio" name="Головна мета" value="Отримати першого клієнта і першу оплату якомога швидше" required>
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Отримати першого клієнта і першу оплату якомога швидше</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" name="Головна мета" value="Вийти на стабільний дохід від 2000€ на місяць">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Вийти на стабільний дохід від 2000€ на місяць</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" name="Головна мета" value="Замінити основну роботу і повністю перейти в AI-автоматизації">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Замінити основну роботу і повністю перейти в AI-автоматизації</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" name="Головна мета" value="Додатковий дохід паралельно з основною роботою">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Додатковий дохід паралельно з основною роботою</span>
+                    </label>
+                </div>
+
+                <div class="quiz-block">
+                    <div class="quiz-title">Наскільки ти готовий(-а) до покупки навчання?</div>
+
+                    <label class="quiz-item">
+                        <input type="radio" name="Готовність до покупки" value="Готовий(а) оплатити або внести бронь" required>
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Готовий(а) оплатити або внести бронь</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" name="Готовність до покупки" value="Хочу дізнатись більше про програму, є питання">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Хочу дізнатись більше про програму, є питання</span>
+                    </label>
+
+                    <label class="quiz-item">
+                        <input type="radio" name="Готовність до покупки" value="Поки розглядаю варіанти">
+                        <span class="radio-ui"></span>
+                        <span class="quiz-text">Поки розглядаю варіанти</span>
+                    </label>
+                </div>
+
+                <div class="checkboxes" style="display: none;">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="Згода на обробку даних" required checked>
+                        <span class="checkbox-ui"></span>
+                        <span class="checkbox-text">Я погоджуюсь на обробку моїх персональних даних відповідно до законодавства, в тому числі для розповсюдження на сайті та онлайн-платформах</span>
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="Ознайомлення з політикою" required checked>
+                        <span class="checkbox-ui"></span>
+                        <span class="checkbox-text">Я ознайомлений(а) з політикою обробки персональних даних і даю згоду на їх обробку</span>
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="Згода з офертою" required checked>
+                        <span class="checkbox-ui"></span>
+                        <span class="checkbox-text">Я ознайомлений(а) і погоджуюсь з публічною офертою</span>
+                    </label>
+                </div>
+
+                <div id="phone-error" class="phone-error" style="opacity:0;">
+                    Неправильний формат номеру
+                </div>
+
+                <button class="join-btn" id="submit-btn-1" type="submit">
+                    НАДІСЛАТИ АНКЕТУ
+                </button>
+            </form>
+        </div>
+    </section>
+  </main>
+  <div id="global-loader" class="loader-overlay">
+      <div class="loader-inner">
+          <div class="dot-spinner">
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+              <div class="dot-spinner__dot"></div>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
