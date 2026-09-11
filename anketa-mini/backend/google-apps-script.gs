@@ -28,6 +28,19 @@
 var SPREADSHEET_ID = '11zXUF1hEjMqM_Z0sWAyzZq_VVy9tqrx7BXrL2wIY5sk'; // LEADS AI LAB
 var DEFAULT_SHEET = 'Мінікурс'; // якщо форма не передала SheetName
 
+// Порядок колонок — такий самий, як на інших аркушах таблиці,
+// щоб «Мінікурс» стикувався з ними без переставляння.
+// Полів «Часу на день» і «Ваші запитання» в анкеті немає — колонки
+// лишаються порожніми, щоб розкладка збігалась.
+var COLUMN_ORDER = [
+  'Дата', 'Email', 'Телефон', 'Телеграм', 'Рівень знань', 'Місячний дохід',
+  'Часу на день', 'Головна мета', 'Ваші запитання', 'Готовність до покупки',
+  'utm_source', 'utm_campaign', 'utm_content', 'utm_term', 'eid', 'page_source'
+];
+
+// Поля, які в таблицю не пишемо: приховані чекбокси згоди завжди "on"
+var SKIP_FIELDS = ['Згода на обробку даних', 'Ознайомлення з політикою', 'Згода з офертою'];
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.waitLock(30000);
@@ -48,11 +61,14 @@ function doPost(e) {
       ? sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1)).getValues()[0]
       : [];
 
-    // Перша колонка завжди дата заявки
+    SKIP_FIELDS.forEach(function (key) { delete params[key]; });
+
+    // Порожній аркуш — одразу ставимо шапку у спільному порядку
     if (headers.length === 0 || !headers[0]) {
-      headers = ['Дата'];
-      sheet.getRange(1, 1).setValue('Дата');
-      sheet.getRange(1, 1, 1, 1).setFontWeight('bold');
+      headers = COLUMN_ORDER.slice();
+      sheet.getRange(1, 1, 1, headers.length)
+        .setValues([headers])
+        .setFontWeight('bold');
       sheet.setFrozenRows(1);
     }
 
