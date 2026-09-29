@@ -256,20 +256,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const isEven = eid % 2 === 0;
 
-        let baseUrl = "https://ai-expert.space/anketalm/thanks1";
+        let baseUrl = "/automation/lm/anketalm/thanks1/";
 
         // beginner + low
         if (segment === "beginner" && income === "low") {
             baseUrl = isEven
-                ? "https://ai-expert.space/anketalm/thanks1"
-                : "https://ai-expert.space/anketalm/thanks3";
+                ? "/automation/lm/anketalm/thanks1/"
+                : "/automation/lm/anketalm/thanks3/";
         }
 
         // advanced + high
         else if (segment === "advanced" && income === "high") {
             baseUrl = isEven
-                ? "https://ai-expert.space/anketalm/thanks2"
-                : "https://ai-expert.space/anketalm/thanks4";
+                ? "/automation/lm/anketalm/thanks2/"
+                : "/automation/lm/anketalm/thanks4/";
         }
         
         const urlWithUtms = `${baseUrl}` +

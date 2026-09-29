@@ -58,7 +58,7 @@ section.hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url("../../anketav4/images/noise-white.png"), url("../../assets/images/hero-bg-white-1.png"), url("../../assets/images/hero-bg-white-2.png");
+    background-image: url("../../assets/images/noise-white.png"), url("../../assets/images/hero-bg-white-1.png"), url("../../assets/images/hero-bg-white-2.png");
     background-repeat: repeat, no-repeat, no-repeat;
     background-size: 10% 50%, auto 70%, auto 100%;
     background-position: center, left top, right top;
