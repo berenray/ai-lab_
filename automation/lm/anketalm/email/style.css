@@ -1,0 +1,574 @@
+@font-face {
+    font-family: 'Benzin Family';
+    src: local('Benzin Family Bold'), local('Benzin-Family-Bold'),
+    url('../../assets/fonts/Benzin-Bold.woff2') format('woff2'),
+    url('../../assets/fonts/Benzin-Bold.woff') format('woff'),
+    url('../../assets/fonts/Benzin-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+}
+
+html {
+    font-size: 20px;
+    background: #FFFFFF;
+    scroll-behavior: smooth;
+    font-synthesis: none;
+}
+body {
+    transition: opacity 0.3s ease;
+}
+body.loading {
+    pointer-events: none;
+    overflow: hidden;
+}
+html.fonts-loading body { visibility: hidden; }
+
+html.fonts-ready body { visibility: visible; }
+html main {
+    overflow: hidden;
+}
+.input-error {
+    border: 1px solid #e63946 !important;
+}
+
+.phone-error {
+    color: #e63946;
+    font-size: .9rem;
+    margin-top: calc(-1.5rem + .9rem);
+    font-weight: bold;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #181818;
+    letter-spacing: 0;
+    line-height: 120%;
+    text-decoration: none;
+    border: none;
+    font-family: Inter, sans-serif;
+}
+br.mobile {
+    display: none;
+}
+section.hero {
+    padding: 3rem 4rem 4rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-image: url("../../anketav4/images/noise-white.png"), url("../images/author.webp"), url("../images/hero-bg.png"), url("../images/hero-bg-2.png");
+    background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 10% 50%, auto 100%, auto 100%, 15% auto;
+    background-position: center, bottom right, center left, bottom right;
+}
+section.hero .top {
+    font-family: "Benzin Family", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    padding: 5px 10px;
+    border-radius: 12px;
+    width: fit-content;
+    background: #FFF610;
+    margin-top: 3rem;
+}
+section.hero .title,
+section.hero .title span {
+    font-family: "Benzin Family", sans-serif;
+    text-transform: uppercase;
+    font-size: 5rem;
+    width: fit-content;
+    text-align: center;
+    line-height: 2.75rem;
+}
+section.hero .title span {
+    font-size: 2.75rem;
+}
+section.hero .after {
+    font-size: 1.2rem;
+}
+section.hero .tooltip {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background-image: url("../images/tooltip-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    width: fit-content;
+}
+section.hero .tooltip p:first-of-type {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FFF610;
+}
+section.hero .tooltip p:last-of-type {
+    font-weight: 550;
+    line-height: 125%;
+    font-size: 1.1rem;
+    font-family: inherit;
+    background: linear-gradient(
+            to top right,
+            #FFFFFF 0%,
+            #999999 30%,
+            #FFFFFF 70%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+section.form {
+    padding: 3rem 4rem;
+    background-image: url("../../anketav4/images/noise-white.png"), url("../images/hero-bg.png"), url("../images/hero-bg-2.png");
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-size: 10% 25%, auto 100%, 15% auto;
+    background-position: center, top left, 100% 10%;
+}
+div.form {
+    max-width: 70vw;
+    margin: 0 auto;
+}
+.form-card {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: #1B1B1B;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+}
+.form-row {
+    display: flex;
+    gap: .75rem;
+}
+.form-row .field-group {
+    flex: 1;
+}
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.field-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #dff3ee;
+}
+.form-card__input-wrap input,
+.form-card__input-wrap textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #eeeeee;
+    border-radius: 14px;
+    padding: .8rem;
+    font-size: 1rem;
+    color: #111;
+}
+.form-card__input-wrap input {
+    height: 2.75rem;
+}
+.form-card__input-wrap textarea {
+    min-height: 2rem;
+    resize: none;
+}
+.form-card__input-wrap input::placeholder,
+.form-card__input-wrap textarea::placeholder {
+    color: #9c9c9c;
+}
+.quiz-block {
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: .8rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background: #282828;
+}
+.quiz-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #FFFFFF;
+}
+.quiz-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .75rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.quiz-item:hover {
+    background: rgba(255,255,255,0.12);
+}
+.quiz-item input[type="radio"] {
+    display: none;
+}
+.radio-ui {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 5.5px solid #FFFFFF;
+    position: relative;
+    flex-shrink: 0;
+    transition: 0.2s;
+}
+.radio-ui::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s;
+}
+.quiz-item input[type="radio"]:checked + .radio-ui {
+    border-color: #1B1B1B;
+}
+.quiz-item input[type="radio"]:checked + .radio-ui::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+.quiz-item:has(input[type="radio"]:checked) {
+    background: #FFF610;
+
+}
+.quiz-item:has(input[type="radio"]:checked) .quiz-text {
+    color: #1B1B1B;
+}
+.quiz-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #FFFFFF;
+}
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.checkbox-item {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    cursor: pointer;
+}
+.checkbox-item input {
+    display: none;
+}
+img.mobile {
+    display: none;
+}
+.checkbox-ui {
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border-radius: 4px;
+    position: relative;
+    flex-shrink: 0;
+}
+.checkbox-ui::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: .8rem;
+    height: .8rem;
+    background: #2fc36e;
+    border-radius: 2px;
+    opacity: 0;
+    transition: 0.2s;
+}
+.checkbox-item input:checked + .checkbox-ui::after {
+    opacity: 1;
+}
+.checkbox-text {
+    font-size: .85rem;
+    line-height: 1.4;
+}
+.phone-error {
+    font-size: .9rem;
+    color: #ff6b6b;
+    margin-top: -1rem;
+}
+.join-btn {
+    width: 100%;
+    border-radius: 999px;
+    background: #ff6422;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: -1rem;
+}
+.join-btn:hover {
+}
+a,
+.join-btn {
+    cursor:pointer;
+    width:100%;
+    padding:1rem 1rem;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(
+            -133deg,
+            #F3DE28 0%,
+            #F9F1AB 100%
+    );
+    border: 2px solid #C2B220;
+    box-shadow: 0 21px 22.5px 0 rgba(255, 255, 255, 0.53) inset;
+    color:#111;
+    border-radius: 16px;
+    font-size: 1.4rem;
+    position:relative;
+    overflow: hidden;
+    font-family: 'Benzin Family', sans-serif;
+    font-weight: 700;
+    line-height: 118%;
+    text-transform: uppercase;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+a::before,
+.join-btn::before,
+.form-card__cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.85) 40%,
+            rgba(255, 255, 255, 0) 80%
+    );
+    transform: skewX(-25deg);
+    animation: shimmer 6s ease-in-out infinite;
+}
+
+.join-btn:hover,
+.form-card__cta:hover,
+a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(255, 229, 0, 0.8);
+}
+
+@keyframes shimmer {
+    0% {
+        left: -80%;
+    }
+    50% {
+        left: 130%;
+    }
+    100% {
+        left: 130%;
+    }
+}
+@media screen and (min-width: 2560px) and (max-width: 3840px) {
+    html {
+        font-size: 24px;
+    }
+    section.hero {
+        padding: 6rem 20%;
+        background-position: center, 75% 100%, center left, bottom right;
+    }
+    section.form {
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+}
+@media only screen and (min-width: 1921px) and (max-width: 2559px) {
+    html {
+        font-size: 23px;
+    }
+    section.hero {
+        padding: 4rem 20%;
+    }
+    section.form {
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
+@media only screen and (min-width: 1601px) and (max-width: 1920px) {
+    html {
+        font-size: 22px;
+    }
+    section.hero {
+        padding: 4rem 5rem 4rem 5rem;
+    }
+    section.form {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+@media only screen and (min-width: 1441px) and (max-width: 1600px) {
+
+}
+@media only screen and (min-width: 1240px) and (max-width: 1440px) {
+    html {
+        font-size: 18px;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1239px) {
+    html {
+        font-size: 16px;
+    }
+    section.hero {
+        padding: 4rem 2rem 3rem 2rem;
+    }
+    section.form {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+@media only screen and (min-width: 830px) and (max-width: 1023px) {
+    html {
+        font-size: 14px;
+    }
+    section.hero {
+        padding: 4rem 2rem 2rem 2rem;
+    }
+    section.form {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    section.hero .content .tooltip {
+        font-size: 1.25rem;
+    }
+}
+@media only screen and (max-width: 830px) {
+    html {
+        font-size: 18px;
+    }
+    section.hero {
+        padding: 4rem 2rem 2rem 2rem;
+        background-image: url(../../anketav4/images/noise-white.png), url(../images/hero-bg.png), url(../images/hero-bg-2.png);
+        background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+        background-size: 10% 50%, auto 100%, 15% auto;
+        background-position: center, center left, bottom right;
+        align-items: center;
+    }
+    section.hero img.mobile {
+        display: block;
+        width: 100%;
+        margin: -10% 0 -25% 0;
+    }
+    section.hero .top {
+        font-size: 1.2rem;
+    }
+    section.hero .tooltip {
+        width: 100%;
+    }
+    section.hero .tooltip p:last-of-type {
+        font-size: 1.15rem;
+    }
+    section.form {
+        padding: 4rem 2rem;
+    }
+    div.form {
+        max-width: 100%;
+    }
+    .quiz-text {
+        line-height: 1.25;
+    }
+}
+@media only screen and (max-width: 600px) {
+    section.form {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    section.hero {
+        padding: 3rem 1rem;
+    }
+    section.hero .title, section.hero .title span {
+        font-size: 4.5rem;
+    }
+    section.hero .title span {
+        font-size: 2.4rem;
+    }
+    section.hero .top {
+        font-size: 1rem;
+        margin-top: 0;
+    }
+    section.hero .tooltip p:last-of-type br {
+        display: none;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+    .quiz-text {
+        line-height: 1.1;
+    }
+}
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 16px;
+    }
+    .quiz-block {
+        padding: 1rem;
+    }
+    section.hero .top {
+        font-size: .95rem;
+    }
+}
+@media only screen and (max-width: 420px) {
+    html {
+        font-size: 15px;
+    }
+    .checkbox-text {
+        font-size: .75rem;
+        line-height: 1.4;
+    }
+    .quiz-item {
+        border-radius: 8px;
+    }
+    .form-card {
+        padding: 1rem;
+        border-radius: 16px;
+    }
+    .quiz-text {
+        font-size: 1rem;
+    }
+}
+@media only screen and (max-width: 390px) {
+    html {
+        font-size: 14px;
+    }
+    .quiz-block {
+        padding: 1rem .8rem;
+    }
+}
+@media only screen and (max-width: 360px) {
+    html {
+        font-size: 13px;
+    }
+    section.hero,
+    section.form {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media only screen and (max-width: 340px) {
+    html {
+        font-size: 12px;
+    }
+}

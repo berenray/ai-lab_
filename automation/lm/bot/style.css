@@ -1,0 +1,597 @@
+/* ============================================================
+   LM Funnel Landing — restyled to "The Confident Operator"
+   Design system borrowed from claude-course-landing:
+   light cool-neutral base · one rationed yellow · dark gravity
+   Copy & structure unchanged; only style/visibility reworked.
+   ============================================================ */
+
+:root {
+    /* ---- Color ---- */
+    --accent: #ffd60a;
+    --accent-deep: #e6be00;
+    --ink: #16171a;
+    --ink-muted: #5c5e66;
+    --base: #f2f2f4;
+    --surface: #ffffff;
+    --border: #e4e4e8;
+
+    --dark: #0f0f12;
+    --dark-surface: #1a1b1f;
+    --dark-border: #2a2b30;
+    --on-dark: #f4f4f6;
+    --on-dark-muted: #a1a2a8;
+
+    /* ---- Radius ---- */
+    --r-sm: 10px;
+    --r-md: 16px;
+    --r-lg: 24px;
+    --r-pill: 999px;
+
+    /* ---- Typography ---- */
+    --font-display: 'Unbounded', system-ui, sans-serif;
+    --font-body: 'Golos Text', system-ui, sans-serif;
+
+    --t-display: clamp(2rem, 5.2vw, 4rem);
+    --t-headline: clamp(1.6rem, 3.4vw, 2.6rem);
+    --t-title: clamp(1.125rem, 1.6vw, 1.375rem);
+    --t-body: 1.0625rem;
+    --t-label: 0.8125rem;
+
+    /* ---- Elevation ---- */
+    --sh-rest: 0 1px 2px rgba(16, 17, 26, 0.04), 0 8px 24px rgba(16, 17, 26, 0.05);
+    --sh-hover: 0 2px 4px rgba(16, 17, 26, 0.06), 0 16px 40px rgba(16, 17, 26, 0.09);
+    --sh-accent: 0 10px 30px rgba(255, 214, 10, 0.35);
+
+    /* ---- Motion ---- */
+    --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-fast: 180ms;
+    --dur-base: 420ms;
+
+    color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    text-decoration: none;
+    border: none;
+    font-family: var(--font-body);
+    color: var(--ink);
+}
+
+html {
+    font-size: 16px;
+    background: var(--base);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--t-body);
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--base);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+    transition: opacity 0.3s ease;
+}
+
+body.loading {
+    pointer-events: none;
+    overflow: hidden;
+}
+
+html.fonts-loading body { visibility: hidden; }
+html.fonts-ready body { visibility: visible; }
+
+html main {
+    overflow: hidden;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+br.mobile {
+    display: none;
+}
+
+.input-error {
+    border: 1px solid #e63946 !important;
+}
+
+.phone-error {
+    color: #e63946;
+    font-size: .9rem;
+    margin-top: calc(-1.5rem + .9rem);
+    font-weight: bold;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--ink);
+}
+
+:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   Shared CTA button — accent pill, dark ink text
+   ============================================================ */
+section.hero a,
+section.benefits .offer > .right a {
+    width: fit-content;
+    max-width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.05rem 2rem;
+    background: var(--accent);
+    color: var(--ink);
+    border-radius: var(--r-pill);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 1.1;
+    text-align: center;
+    transition:
+        background var(--dur-fast) var(--ease-expo),
+        transform var(--dur-fast) var(--ease-expo),
+        box-shadow var(--dur-fast) var(--ease-expo);
+}
+
+section.hero a:hover,
+section.benefits .offer > .right a:hover {
+    background: var(--accent-deep);
+    transform: translateY(-2px);
+    box-shadow: var(--sh-accent);
+}
+
+section.hero a:active,
+section.benefits .offer > .right a:active {
+    transform: translateY(0);
+}
+
+section.hero a svg,
+section.benefits .offer > .right a svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex: none;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+section.hero {
+    padding: clamp(3rem, 7vw, 6rem) var(--gutter, clamp(1.25rem, 5vw, 4rem)) clamp(4rem, 8vw, 7rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    background: radial-gradient(120% 80% at 50% 0%, #ffffff 0%, var(--base) 60%);
+}
+
+section.hero .tooltip-top,
+section.hero .tooltip-top span {
+    font-family: var(--font-body);
+    font-size: var(--t-label);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-align: center;
+}
+section.hero .tooltip-top span {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+section.hero .title {
+    font-family: var(--font-display);
+    font-size: var(--t-display);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    text-align: center;
+    text-wrap: balance;
+    max-width: 20ch;
+}
+section.hero .title span {
+    background: var(--accent);
+    color: var(--ink);
+    border-radius: 0.1em;
+    padding: 0 0.14em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+section.hero .tooltip-bottom {
+    font-family: var(--font-body);
+    font-size: clamp(1.0625rem, 1.6vw, 1.3rem);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    max-width: 60ch;
+    text-wrap: pretty;
+    padding: 0;
+}
+
+.video-wrapper {
+    position: relative;
+    width: min(100%, 1000px);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--sh-rest);
+    margin: 0.5rem auto 0;
+}
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    border-radius: var(--r-lg);
+}
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(15, 15, 18, 0.35);
+    z-index: 2;
+    transition: opacity 1s ease, visibility 1s ease;
+    pointer-events: all;
+}
+.video-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+section.hero a {
+    margin: 0.75rem auto 0;
+    /* primary action under the video — ~1.5x larger than the base CTA */
+    padding: clamp(1.2rem, 2vw, 1.6rem) clamp(1.75rem, 3vw, 3rem);
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    gap: 1.1rem;
+}
+section.hero a svg {
+    width: clamp(1.9rem, 2.6vw, 2.4rem);
+    height: clamp(1.9rem, 2.6vw, 2.4rem);
+}
+
+/* ============================================================
+   ABOUT — asymmetric bento of white cards
+   ============================================================ */
+section.about {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 4vw, 3rem);
+    align-items: center;
+    padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem);
+}
+
+section.about .title {
+    font-family: var(--font-display);
+    font-size: var(--t-headline);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    text-wrap: balance;
+}
+
+section.about .content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    width: 100%;
+    max-width: 1100px;
+}
+section.about .content .top,
+section.about .content .bottom {
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    width: 100%;
+}
+section.about .content .top > .item:last-child,
+section.about .content .bottom > .item:first-child {
+    flex: 1.6;
+}
+section.about .content .top > .item:first-child,
+section.about .content .bottom > .item:last-child {
+    flex: 1;
+}
+section.about .content .item {
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--surface);
+    box-shadow: var(--sh-rest);
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(11rem, 20vw, 15rem);
+    transition:
+        transform var(--dur-base) var(--ease-expo),
+        box-shadow var(--dur-base) var(--ease-expo);
+    /* decorative background illustrations removed for the clean look */
+    background-image: none;
+}
+section.about .content .item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sh-hover);
+}
+section.about .content .item p,
+section.about .content .item p span {
+    font-family: var(--font-body);
+    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+    line-height: 1.45;
+    color: var(--ink);
+}
+section.about .content .item p span {
+    font-weight: 700;
+}
+
+/* ============================================================
+   BENEFITS — white bento cards, dark offer block
+   ============================================================ */
+section.benefits {
+    padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    background-image: none;
+}
+
+section.benefits .title,
+section.benefits .title span {
+    font-family: var(--font-display);
+    font-size: var(--t-headline);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    text-wrap: balance;
+}
+section.benefits .title span {
+    background: var(--accent);
+    color: var(--ink);
+    border-radius: 0.1em;
+    padding: 0 0.14em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+section.benefits .pre {
+    font-family: var(--font-body);
+    font-size: var(--t-title);
+    font-weight: 600;
+    color: var(--ink-muted);
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+section.benefits .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    width: 100%;
+    max-width: 1100px;
+}
+section.benefits .content .item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    background-image: none;
+    box-shadow: var(--sh-rest);
+    justify-content: flex-start;
+    transition:
+        transform var(--dur-base) var(--ease-expo),
+        box-shadow var(--dur-base) var(--ease-expo);
+}
+section.benefits .content .item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sh-hover);
+}
+
+/* icon chip — black line icon on a quiet neutral tile */
+section.benefits .content .item div {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    padding: 0;
+    border-radius: var(--r-md);
+    background: var(--base);
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+section.benefits .content .item img {
+    width: 1.35rem;
+    height: 1.35rem;
+    min-width: 1.35rem;
+    min-height: 1.35rem;
+}
+
+section.benefits .content .item > p,
+section.benefits .content .item > p > span {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.1vw, 1.0625rem);
+    line-height: 1.45;
+    color: var(--ink);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+}
+section.benefits .content .item p > span {
+    color: var(--ink) !important;
+    -webkit-text-fill-color: var(--ink);
+    font-weight: 700;
+}
+
+/* the last card carries the accent — the single loud beat in the grid */
+section.benefits .content .item:last-of-type {
+    background: var(--accent);
+    border-color: var(--accent);
+    background-image: none;
+}
+section.benefits .content .item:last-of-type div {
+    background: var(--ink);
+    border-color: var(--ink);
+}
+section.benefits .content .item:last-of-type > p,
+section.benefits .content .item:last-of-type > p > span {
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+}
+
+/* ---- Offer block — the dark gravity moment ---- */
+section.benefits .offer {
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-top: clamp(2rem, 4vw, 3.5rem);
+    width: 100%;
+    max-width: 1100px;
+    background: var(--dark);
+    border-radius: var(--r-lg);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: stretch;
+}
+section.benefits .offer > div {
+    flex: 1;
+}
+section.benefits .offer > .left {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--on-dark);
+}
+section.benefits .offer > .right {
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    background: var(--dark-surface);
+    border: 1px solid var(--dark-border);
+    border-radius: var(--r-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+section.benefits .offer > .right img {
+    width: 2.75rem;
+    height: auto;
+}
+section.benefits .offer > .right p {
+    font-family: var(--font-body);
+    font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--on-dark);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+}
+section.benefits .offer > .right a {
+    margin-top: 0.25rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media only screen and (max-width: 1024px) {
+    section.benefits .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    section.hero .tooltip-top br,
+    section.hero .tooltip-top span br,
+    section.benefits .content .item > p br,
+    section.about .content .item p br {
+        display: none;
+    }
+    /* let big display headings reflow to the viewport instead of holding
+       their designed line breaks and overflowing narrow screens */
+    section.hero .title br,
+    section.about .title br,
+    section.benefits .title br {
+        display: none;
+    }
+    section.hero .title,
+    section.about .title,
+    section.benefits .title,
+    section.benefits .title span {
+        overflow-wrap: anywhere;
+        hyphens: auto;
+        max-width: 100%;
+    }
+    section.about .content .top,
+    section.about .content .bottom {
+        flex-direction: column;
+    }
+    section.about .content .item {
+        min-height: auto;
+        padding: 1.5rem;
+    }
+    section.benefits .offer {
+        flex-direction: column;
+    }
+    section.benefits .offer > .left {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    :root {
+        --t-display: clamp(1.5rem, 8vw, 2rem);
+        --t-headline: clamp(1.4rem, 6.5vw, 1.85rem);
+    }
+    section.benefits .content {
+        grid-template-columns: 1fr;
+    }
+    section.hero a {
+        width: 100%;
+    }
+    section.hero .title span br {
+        display: none;
+    }
+}
