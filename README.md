@@ -18,6 +18,7 @@ index.html              — головна: вибір між двома кур�
 automation/index.html   — курс з AI-автоматизацій (2 місяці)
 claude/index.html       — курс по Claude (7 днів), збірка з окремого Astro-проєкту
 anketa-mini/index.html  — анкета передзапису мінікурсу (окрема, без посилань з сайту)
+workshop/index.html     — реєстрація на безкоштовний воркшоп 06.10 (кнопки ведуть у Telegram-бот)
 legal/*.pdf             — договір оферта і політика конфіденційності
 assets/css/tokens.css   — дизайн-система: primitive → semantic → component
 assets/css/main.css     — layout і компоненти, спільні для всіх сторінок
