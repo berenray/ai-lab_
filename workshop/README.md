@@ -16,9 +16,9 @@ img/         — фото Влада (WebP), логотип, og.jpg 1200×630 д
 ## Посилання на сторінку
 
 ```
-https://ai-lab.com.ua/workshop/?utm_source=tg_bot&utm_campaign=ws0610
-https://ai-lab.com.ua/workshop/?utm_source=tg_channel&utm_campaign=ws0610
-https://ai-lab.com.ua/workshop/?utm_source=instagram&utm_campaign=ws0610
+https://www.ai-lab.com.ua/workshop/?utm_source=tg_bot&utm_campaign=ws0610
+https://www.ai-lab.com.ua/workshop/?utm_source=tg_channel&utm_campaign=ws0610
+https://www.ai-lab.com.ua/workshop/?utm_source=instagram&utm_campaign=ws0610
 ```
 
 Кнопки ведуть на `https://t.me/vladushakovai_bot?start=ws0610_<utm_source>`,
