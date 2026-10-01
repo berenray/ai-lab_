@@ -27,14 +27,30 @@ img/         — фото Влада, обкладинка бонусу, фот�
 
 ## Посилання на сторінку
 
+Для кожного каналу — своя коротка адреса. Це редирект (`vercel.json` у корені)
+на ту саму сторінку з потрібним `utm_source`:
+
+| Канал            | Посилання                                   | start у боті (SendPulse)     |
+| ---------------- | ------------------------------------------- | ---------------------------- |
+| Instagram        | https://www.ai-lab.com.ua/workshop/ig       | `6abe785a37cd3c0e380bbf43`   |
+| Telegram-канал   | https://www.ai-lab.com.ua/workshop/tg       | `6abe903cd5e69b57a50e909d`   |
+| Telegram-бот     | https://www.ai-lab.com.ua/workshop/bot      | `6abe908409602983840983eb`   |
+| без мітки        | https://www.ai-lab.com.ua/workshop/         | `ws0610_web`                 |
+
+Мітки каналів видав SendPulse, вони живуть у `config.js` (`startParams`).
+
+Повні адреси теж працюють:
+
 ```
 https://www.ai-lab.com.ua/workshop/?utm_source=tg_bot&utm_campaign=ws0610
 https://www.ai-lab.com.ua/workshop/?utm_source=tg_channel&utm_campaign=ws0610
 https://www.ai-lab.com.ua/workshop/?utm_source=instagram&utm_campaign=ws0610
 ```
 
-Кнопки ведуть на `https://t.me/vladushakovai_bot?start=ws0610_<utm_source>`,
-без UTM — `ws0610_web`. Джерело чиститься до `[a-z0-9_-]`, бо інше Telegram
+Для джерела без мітки в `startParams` кнопки ведуть на
+`https://t.me/vladushakovai_bot?start=ws0610_<utm_source>`, без UTM —
+`ws0610_web`. Новий канал (наприклад, YouTube) — мітка з SendPulse у
+`startParams` і ще два рядки в `vercel.json` з іншим `utm_source`. Джерело чиститься до `[a-z0-9_-]`, бо інше Telegram
 у start-параметрі не приймає.
 
 ## Аналітика

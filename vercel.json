@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/workshop/ig", "destination": "/workshop/?utm_source=instagram&utm_campaign=ws0610", "permanent": false },
+    { "source": "/workshop/ig/", "destination": "/workshop/?utm_source=instagram&utm_campaign=ws0610", "permanent": false },
+    { "source": "/workshop/tg", "destination": "/workshop/?utm_source=tg_channel&utm_campaign=ws0610", "permanent": false },
+    { "source": "/workshop/tg/", "destination": "/workshop/?utm_source=tg_channel&utm_campaign=ws0610", "permanent": false },
+    { "source": "/workshop/bot", "destination": "/workshop/?utm_source=tg_bot&utm_campaign=ws0610", "permanent": false },
+    { "source": "/workshop/bot/", "destination": "/workshop/?utm_source=tg_bot&utm_campaign=ws0610", "permanent": false }
+  ]
+}

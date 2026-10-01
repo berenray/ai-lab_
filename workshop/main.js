@@ -25,7 +25,8 @@
   }
 
   /* --- джерело і посилання в бот ---
-     utm_source -> start=ws0610_<source>. Без UTM — web.
+     Для каналів з config.startParams — їхня мітка з SendPulse.
+     Решта: utm_source -> start=ws0610_<source>, без UTM — web.
      Telegram пропускає лише [A-Za-z0-9_-] і до 64 символів. */
   const params = new URLSearchParams(location.search);
   const prefix = `${cfg.campaign || 'ws0610'}_`;
@@ -35,7 +36,8 @@
       .replace(/[^a-z0-9_-]+/g, '_')
       .replace(/^_+|_+$/g, '')
       .slice(0, 64 - prefix.length) || 'web';
-  const botUrl = `https://t.me/${cfg.botUsername}?start=${prefix}${source}`;
+  const startParam = (cfg.startParams || {})[source] || `${prefix}${source}`;
+  const botUrl = `https://t.me/${cfg.botUsername}?start=${startParam}`;
 
   ctas.forEach((a) => { a.href = botUrl; });
 
