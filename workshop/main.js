@@ -82,13 +82,6 @@
     });
   });
 
-  /* --- кодове слово ---
-     Якщо подарунок не затвердили, ховаємо плашку в програмі
-     і другу фразу у фіналі. */
-  if (cfg.codewordGift === false) {
-    document.querySelectorAll('[data-codeword]').forEach((el) => { el.hidden = true; });
-  }
-
   /* --- таймер ---
      До старту — Д:Г:Х:С, під час ефіру — «Ефір уже йде»,
      після — «Воркшоп завершився». Нулі не показуємо ніколи:
@@ -103,7 +96,6 @@
     countdown.querySelectorAll('[data-unit]').forEach((el) => {
       cells[el.dataset.unit] = { box: el, num: el.querySelector('b') };
     });
-    const daysColon = countdown.querySelector('[data-colon="d"]');
     const pad = (n) => String(n).padStart(2, '0');
     let current = null;
     let interval;
@@ -124,7 +116,6 @@
       const s = Math.ceil((start - now) / 1000);
       const d = Math.floor(s / 86400);
       cells.d.box.hidden = d === 0;
-      if (daysColon) daysColon.hidden = d === 0;
       cells.d.num.textContent = pad(d);
       cells.h.num.textContent = pad(Math.floor((s % 86400) / 3600));
       cells.m.num.textContent = pad(Math.floor((s % 3600) / 60));
@@ -135,17 +126,19 @@
     interval = setInterval(tick, 1000);
   }
 
-  /* --- відео Івана ---
-     Спершу постер і кнопка, iframe вантажимо тільки після кліку. */
-  const video = document.getElementById('ivan-video');
-  if (video && cfg.ivanVideoUrl) {
-    video.hidden = false;
-    if (cfg.ivanVideoPoster) video.style.backgroundImage = `url("${cfg.ivanVideoPoster}")`;
-    video.querySelector('.video__play').addEventListener('click', () => {
-      const src = new URL(cfg.ivanVideoUrl);
-      src.searchParams.set('autoplay', '1');
-      video.innerHTML = `<iframe src="${src}" title="Історія Івана" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
-    }, { once: true });
+  /* --- скрини оплат на весь екран --- */
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox && lightbox.showModal) {
+    const full = lightbox.querySelector('img');
+    document.querySelectorAll('.proof').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const img = btn.querySelector('img');
+        full.src = img.currentSrc || img.src;
+        full.alt = img.alt;
+        lightbox.showModal();
+      });
+    });
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.close(); });
   }
 
   /* --- липка кнопка ---
