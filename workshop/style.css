@@ -304,10 +304,10 @@ b { font-weight: 800; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 900;
-  /* «AI-автоматизацію» не переноситься і займає ~12.6em,
+  /* «Перші гроші на AI:» стоїть одним рядком і займає ~12em,
      тому розмір обмежений шириною колонки, а не вікна */
   font-size: clamp(1.75rem, 1rem + 3.6vw, 4.25rem); /* для браузерів без container queries */
-  font-size: min(clamp(1.75rem, 1rem + 3.6vw, 4.25rem), 7.8cqi);
+  font-size: min(clamp(1.75rem, 1rem + 3.6vw, 4.25rem), 8.2cqi);
   letter-spacing: -.02em;
   line-height: 1.08;
   text-wrap: balance;
@@ -871,8 +871,8 @@ b { font-weight: 800; }
 
   .bonus { grid-template-columns: 1.15fr 1fr; align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem); padding: 16px clamp(1.5rem, 4vw, 3rem) 16px 16px; }
 
-  .who { grid-template-columns: 1fr 1fr; gap: 14px; }
-  .who__item { padding: 22px; font-size: 1.125rem; }
+  .who { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .who__item { flex-direction: column; align-items: flex-start; padding: 22px; font-size: 1.125rem; }
 
   .route { max-width: 820px; }
   .route__step { padding: 0 0 30px 64px; }
