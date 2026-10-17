@@ -6,5 +6,9 @@
     { "source": "/workshop/tg/", "destination": "/workshop/?utm_source=tg_channel&utm_campaign=ws0610", "permanent": false },
     { "source": "/workshop/bot", "destination": "/workshop/?utm_source=tg_bot&utm_campaign=ws0610", "permanent": false },
     { "source": "/workshop/bot/", "destination": "/workshop/?utm_source=tg_bot&utm_campaign=ws0610", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/analytics", "destination": "https://ai-lab-analytics.vercel.app/analytics" },
+    { "source": "/analytics/:path*", "destination": "https://ai-lab-analytics.vercel.app/analytics/:path*" }
   ]
 }
