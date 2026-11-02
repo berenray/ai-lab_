@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>JARVIS на Claude Code</title>
+<meta name="description" content="Покроковий гайд AI LAB: збери голосового помічника JARVIS на Claude Code, Obsidian і локальному голосі. 4 кроки, готові промпти під кожен.">
+<meta property="og:title" content="JARVIS на Claude Code · гайд AI LAB">
+<meta property="og:description" content="4 кроки і готові промпти: Claude Code як двигун, Obsidian як пам'ять, локальний голос і один екран на весь день.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.ai-lab.com.ua/guides/jarvis/">
+<link rel="canonical" href="https://www.ai-lab.com.ua/guides/jarvis/">
+<meta name="theme-color" content="#0F0F11">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230F0F11'/%3E%3Crect x='14' y='22' width='36' height='20' rx='5' fill='%23F8D74A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Golos+Text:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: AI LAB brand — strict light/dark section bands, heavy display type with gold-block highlights,
+   each build step is a numbered band with a copyable prompt card; sticky pill header carries step progress. */
+:root{
+  --gold:#F8D74A; --gold-muted:#C9A227; --ink:#0F0F11; --card-dark:#1A1B1F; --olive:#312E27;
+  --paper:#F2F2F4; --white:#FFFFFF; --text:#0F0F11; --muted:#6B6B70; --muted-dark:#A8A8AD;
+  --line:#E2E2E5; --line-dark:#2C2D33; --ok:#3FBF7F;
+  --f-display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:88px}
+.band.dark{background:var(--ink);color:var(--white)}
+.band.light{background:var(--paper)}
+.band.white{background:var(--white)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,6vw,64px)}
+h2{font-size:clamp(28px,4.2vw,44px)}
+h3{font-size:clamp(20px,2.4vw,24px)}
+.hl{background:var(--gold);color:var(--ink);padding:0 .18em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.lead{font-size:clamp(17px,2vw,19px);color:var(--muted);max-width:62ch;margin:20px 0 0}
+.dark .lead{color:var(--muted-dark)}
+p{margin:0}
+code.inl{font-family:var(--f-mono);font-size:.88em;background:rgba(15,15,17,.07);padding:1px 6px;border-radius:6px;white-space:nowrap}
+.dark code.inl{background:rgba(255,255,255,.1)}
+
+/* header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding-top:12px}
+.hdr .bar{background:var(--white);border-radius:999px;padding:8px 8px 8px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 0 var(--line),0 8px 24px rgba(15,15,17,.08)}
+.logo{font-family:var(--f-display);font-weight:900;font-size:16px;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.logo b{background:var(--gold);padding:0 5px;border-radius:4px;margin-left:3px}
+.prog{flex:1;display:flex;align-items:center;gap:10px;min-width:0;justify-content:center}
+.prog-dots{display:flex;gap:6px}
+.prog-dots a{width:28px;height:28px;border-radius:999px;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:12px;font-weight:800;text-decoration:none;background:var(--white);transition:background .2s}
+.prog-dots a.done{background:var(--gold)}
+.prog-txt{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 26px;font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer;font-family:var(--f-body);white-space:nowrap}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{filter:brightness(.96)}
+.btn-ink{background:var(--ink);color:var(--white)}
+.btn:focus-visible,.copy:focus-visible,.tab:focus-visible,.check:focus-visible,summary:focus-visible,.prog-dots a:focus-visible{outline:3px solid var(--gold-muted);outline-offset:2px}
+
+/* hero */
+.hero{padding-block:72px 88px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.stat{background:var(--white);border-radius:22px;padding:22px}
+.stat .n{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,4vw,40px);line-height:1}
+.stat .l{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.4}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn-ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+
+/* parts bento */
+.parts{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:14px;margin-top:40px}
+.part{background:var(--card-dark);border-radius:24px;padding:28px;min-width:0}
+.part.big{grid-row:span 2;background:var(--gold);color:var(--ink);display:flex;flex-direction:column;justify-content:space-between}
+.part .role{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.part.big .role{color:var(--ink);opacity:.7}
+.part h3{margin-top:10px}
+.part p{color:var(--muted-dark);margin-top:10px;font-size:15px}
+.part.big p{color:var(--ink);opacity:.8;font-size:17px}
+.part.wide{grid-column:span 2}
+.flow{font-family:var(--f-mono);font-size:13px;margin-top:28px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.flow span{background:var(--ink);color:var(--white);padding:5px 10px;border-radius:999px}
+
+/* before start */
+.pre{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:40px}
+.pre-card{background:var(--white);border-radius:24px;padding:28px;min-width:0}
+.pre-card .num{font-family:var(--f-display);font-weight:800;font-size:15px;width:34px;height:34px;border-radius:999px;background:var(--gold);display:grid;place-items:center}
+.pre-card h3{font-size:19px;margin-top:14px}
+.pre-card p{color:var(--muted);margin-top:8px;font-size:15px}
+.pre-card.full{grid-column:1/-1}
+.tabs{display:flex;gap:6px;margin-top:16px;flex-wrap:wrap}
+.tab{border:1.5px solid var(--ink);background:var(--white);border-radius:999px;padding:6px 14px;font:600 13px var(--f-body);cursor:pointer;color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--white)}
+.cmd{margin-top:12px;background:var(--ink);color:#ECECEE;border-radius:16px;padding:14px 14px 14px 18px;display:flex;align-items:center;gap:12px;min-width:0}
+.cmd pre{margin:0;font-family:var(--f-mono);font-size:14px;overflow-x:auto;flex:1;min-width:0;white-space:pre}
+.cmd .dollar{color:var(--gold);font-family:var(--f-mono);font-weight:600}
+.copy{flex:none;border:0;border-radius:999px;background:var(--gold);color:var(--ink);font:700 13px var(--f-body);padding:8px 16px;cursor:pointer}
+.copy.ok{background:var(--ok);color:var(--white)}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+
+/* steps */
+.step-head{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+.bignum{font-family:var(--f-display);font-weight:900;font-size:clamp(64px,10vw,120px);line-height:.85;color:var(--gold)}
+.light .bignum,.white .bignum{color:var(--ink)}
+.light .bignum span,.white .bignum span{background:var(--gold);padding:0 .08em}
+.step-body{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px}
+.result{background:var(--olive);border-radius:20px;padding:24px;color:var(--white)}
+.light .result,.white .result{background:var(--ink)}
+.result .eyebrow{color:var(--gold)}
+.result p{margin-top:8px;color:#E4E2DC}
+.prompt{grid-column:1/-1;border-radius:24px;overflow:hidden;background:var(--card-dark);color:#ECECEE;min-width:0}
+.light .prompt,.white .prompt{background:var(--ink)}
+.prompt-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 14px 22px;border-bottom:1px solid var(--line-dark)}
+.prompt-top .eyebrow{color:var(--gold)}
+.prompt pre{margin:0;padding:22px;font-family:var(--f-mono);font-size:14px;line-height:1.65;white-space:pre-wrap;word-break:break-word;max-height:440px;overflow:auto}
+.info{background:var(--card-dark);border-radius:20px;padding:24px;min-width:0}
+.light .info,.white .info{background:var(--white)}
+.white .info{background:var(--paper)}
+.info h4{margin:0;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.info ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.info li{position:relative;padding-left:26px;font-size:15px;line-height:1.5}
+.dark .info li{color:#D8D8DC}
+.info li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:4px;background:var(--gold)}
+.info.warn li::before{background:transparent;border:2px solid var(--gold-muted)}
+.done-row{grid-column:1/-1;display:flex;justify-content:flex-end}
+.check{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:12px 22px;font:700 15px var(--f-body);cursor:pointer;border:1.5px solid currentColor;background:transparent;color:inherit}
+.check .box{width:20px;height:20px;border-radius:6px;border:2px solid currentColor;display:grid;place-items:center;font-size:13px;line-height:1}
+.check[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.check[aria-pressed="true"] .box::after{content:"✓";font-weight:900}
+
+/* day */
+.day{margin-top:40px;display:grid;gap:10px;max-width:760px}
+.slot{display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:baseline;background:var(--paper);border-radius:20px;padding:20px 24px}
+.slot .t{font-family:var(--f-mono);font-weight:600;font-size:15px;color:var(--gold-muted)}
+.slot b{display:block;font-size:17px}
+.slot span{color:var(--muted);font-size:15px}
+.bonus{margin-top:28px}
+
+/* order */
+.order{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;align-items:center}
+.order .chip{background:var(--card-dark);border-radius:999px;padding:12px 22px;font-weight:700}
+.order .chip b{color:var(--gold);margin-right:8px;font-family:var(--f-display)}
+.order .arr{color:var(--gold);font-size:22px}
+
+/* faq */
+.faq{margin-top:36px;display:grid;gap:10px;max-width:820px}
+details{background:var(--white);border-radius:20px;padding:4px 24px}
+summary{cursor:pointer;list-style:none;font-weight:700;font-size:17px;padding:18px 32px 18px 0;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:999px;background:var(--gold);display:grid;place-items:center;font-weight:800}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);padding-bottom:20px;font-size:15px}
+
+/* cta */
+.cta{text-align:center}
+.cta h2{max-width:20ch;margin:0 auto}
+.cta .lead{margin-inline:auto}
+.cta .btn{margin-top:32px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:72px;padding-top:24px;border-top:1px solid var(--line-dark);font-size:14px;color:var(--muted-dark)}
+
+@media (max-width:860px){
+  .parts{grid-template-columns:1fr 1fr}
+  .part.big{grid-row:auto;grid-column:1/-1}
+  .part.wide{grid-column:1/-1}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .step-body{grid-template-columns:1fr}
+  .prog-txt{display:none}
+}
+@media (max-width:560px){
+  .band{padding-block:64px}
+  .parts,.pre{grid-template-columns:1fr}
+  .step-head{grid-template-columns:1fr;gap:12px}
+  .slot{grid-template-columns:1fr;gap:4px}
+  .hdr .bar{padding-left:14px}
+  .hdr .btn{display:none}
+  .prog{justify-content:flex-end}
+  .prog-dots a{width:26px;height:26px}
+  .cmd{flex-wrap:wrap}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+/* ---------- motion: soft, premium ---------- */
+:root{--ease:cubic-bezier(.2,.7,.2,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+.sprog{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:3px;z-index:70;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+.hdr .bar{transition:box-shadow .4s var(--ease),transform .4s var(--ease)}
+.hdr.scrolled .bar{box-shadow:0 1px 0 var(--line),0 14px 40px rgba(15,15,17,.14)}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s);will-change:opacity,transform}
+.js .reveal.in{opacity:1;transform:none}
+.js .bignum.reveal{transform:translateY(40px) scale(.94)}
+.js .bignum.reveal.in{transform:none}
+.js .hl{background:linear-gradient(var(--gold),var(--gold)) no-repeat 0 0/0% 100%;transition:background-size 1.1s var(--ease-io) .35s}
+.js .in .hl,.js .hl.in{background-size:100% 100%}
+.btn{transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s,filter .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold:hover{box-shadow:0 10px 26px rgba(248,215,74,.45)}
+.btn-ghost:hover{background:var(--ink);color:var(--white)}
+.stat,.part,.pre-card,.slot,.info,details{transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.stat:hover,.part:hover,.pre-card:hover,.slot:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(15,15,17,.10)}
+.dark .part:hover{box-shadow:0 16px 36px rgba(0,0,0,.35)}
+.flow span{animation:flowlit 4.8s var(--ease) infinite}
+.flow span:nth-of-type(2){animation-delay:1.2s}.flow span:nth-of-type(3){animation-delay:2.4s}.flow span:nth-of-type(4){animation-delay:3.6s}
+@keyframes flowlit{0%,4%{background:var(--ink);color:var(--white);transform:none}9%,22%{background:var(--white);color:var(--ink);transform:translateY(-2px)}30%,100%{background:var(--ink);color:var(--white);transform:none}}
+.part.big .role::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ink);margin-right:8px;vertical-align:1px;animation:breathe 2.6s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+.copy{transition:background .3s,color .3s,transform .25s var(--ease)}
+.copy:hover{transform:translateY(-1px)}
+.copy.ok{animation:pop .45s var(--ease)}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.08)}100%{transform:scale(1)}}
+.check{transition:background .35s var(--ease),color .35s,border-color .35s,transform .25s var(--ease)}
+.check:hover{transform:translateY(-2px)}
+.check[aria-pressed="true"] .box{animation:pop .45s var(--ease)}
+.prog-dots a{transition:background .4s var(--ease),transform .4s var(--ease)}
+.prog-dots a.done{transform:scale(1.08)}
+.prog-dots a:hover{transform:translateY(-2px)}
+.prompt{transition:box-shadow .5s var(--ease),transform .5s var(--ease)}
+.prompt:hover{box-shadow:0 0 0 1.5px var(--gold),0 20px 50px rgba(0,0,0,.25)}
+details p{animation:fadeup .5s var(--ease)}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+summary::after{transition:transform .35s var(--ease)}
+details[open] summary::after{transform:translateY(-50%) rotate(180deg)}
+.order .arr{display:inline-block;animation:nudge 2.4s var(--ease) infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){
+  .js .reveal,.js .bignum.reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .js .hl{background-size:100% 100%!important;transition:none!important}
+  .flow span,.part.big .role::before,.order .arr,.copy.ok,details p,.check[aria-pressed="true"] .box{animation:none!important}
+  .sprog{display:none}
+}
+
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js")</script>
+
+<div class="sprog" id="sprog" aria-hidden="true"></div>
+<div class="hdr" id="hdr"><div class="wrap"><div class="bar">
+  <a class="logo" href="#top">AI<b>LAB</b></a>
+  <div class="prog" aria-label="Прогрес по кроках">
+    <div class="prog-dots">
+      <a href="#step-1" data-dot="1" aria-label="Крок 1">1</a>
+      <a href="#step-2" data-dot="2" aria-label="Крок 2">2</a>
+      <a href="#step-3" data-dot="3" aria-label="Крок 3">3</a>
+      <a href="#step-4" data-dot="4" aria-label="Крок 4">4</a>
+    </div>
+    <span class="prog-txt" id="progTxt">Пройдено 0 з 4</span>
+  </div>
+  <a class="btn btn-gold" href="https://ai-lab.com.ua/claude" target="_blank" rel="noopener">Курс по Claude</a>
+</div></div></div>
+
+<main id="top">
+
+<section class="band light hero"><div class="wrap">
+  <div class="eyebrow">Покроковий гайд · Claude Code</div>
+  <h1 style="margin-top:16px">Ти говориш. <span class="hl">Він веде твій день.</span></h1>
+  <p class="lead">Збираємо власного JARVIS: Claude Code як двигун, Obsidian як пам'ять, локальний голос і один екран на весь день. Чотири кроки, під кожен готовий промпт. Копіюєш, вставляєш у Claude Code і відповідаєш на його питання.</p>
+  <div class="hero-cta">
+    <a class="btn btn-gold" href="#start">Почати з підготовки</a>
+    <a class="btn btn-ghost" href="#step-1">Одразу до кроку 1</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">4</div><div class="l">кроки, які збираються по черзі</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">вечір від нуля до робочої системи</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">готових промптів, просто скопіювати</div></div>
+    <div class="stat"><div class="n">0 ₴</div><div class="l">за голос і пам'ять: працюють локально</div></div>
+  </div>
+</div></section>
+
+<section class="band dark"><div class="wrap">
+  <div class="eyebrow">Що ти збереш</div>
+  <h2 style="margin-top:14px">Одна система з чотирьох частин</h2>
+  <p class="lead">Кожна частина робить одну річ. Разом вони прибирають вкладки, ручний набір і втрачений контекст між інструментами.</p>
+  <div class="parts">
+    <div class="part big">
+      <div><div class="role">Двигун</div><h3>Claude Code</h3>
+      <p>Отримує твій запит, вибирає потрібний скіл і виконує роботу. Більше нічого «розумного» в системі не потрібно.</p></div>
+      <div class="flow"><span>говориш</span>→<span>скіл</span>→<span>результат</span>→<span>нотатки</span></div>
+    </div>
+    <div class="part"><div class="role">Пам'ять</div><h3>Obsidian</h3><p>Усе лягає звичайними markdown-нотатками з посиланнями. Без бази даних, і ти можеш прочитати кожне слово, яке він знає.</p></div>
+    <div class="part"><div class="role">Вуха і голос</div><h3>Локальний голос</h3><p>Мова в текст на вході, текст у мову на виході. Обидва працюють на твоєму комп'ютері, аудіо нікуди не йде.</p></div>
+    <div class="part wide"><div class="role">Обличчя</div><h3>Один екран</h3><p>Показники, розклад, команди і стан голосу на одній панелі. Дані підтягуються прямо з твоїх нотаток.</p></div>
+  </div>
+</div></section>
+
+<section class="band light" id="start"><div class="wrap">
+  <div class="eyebrow">Перед стартом</div>
+  <h2 style="margin-top:14px">Підготуй це за <span class="hl">10 хвилин</span></h2>
+  <p class="lead">Без цих трьох речей промпти не спрацюють. Зроби їх один раз і переходь до кроків.</p>
+  <div class="pre">
+    <div class="pre-card">
+      <div class="num">1</div>
+      <h3>Платний план Claude</h3>
+      <p>Claude Code працює з планами Pro, Max, Team або Enterprise. На безкоштовному плані його немає.</p>
+    </div>
+    <div class="pre-card">
+      <div class="num">2</div>
+      <h3>Obsidian</h3>
+      <p>Безкоштовний застосунок для нотаток. Завантаж з <code class="inl">obsidian.md</code> і просто встанови, налаштовувати поки нічого не треба.</p>
+    </div>
+    <div class="pre-card full">
+      <div class="num">3</div>
+      <h3>Встанови Claude Code</h3>
+      <p>Відкрий термінал (на Mac: програма «Термінал», на Windows: PowerShell) і встав команду для своєї системи.</p>
+      <div class="tabs" role="tablist" aria-label="Операційна система">
+        <button class="tab" role="tab" aria-selected="true" data-os="mac" id="tab-mac">macOS / Linux</button>
+        <button class="tab" role="tab" aria-selected="false" data-os="win" id="tab-win">Windows</button>
+      </div>
+      <div class="cmd" data-os-panel="mac"><span class="dollar">$</span><pre id="c-mac">curl -fsSL https://claude.ai/install.sh | bash</pre><button class="copy" data-copy="c-mac">Копіювати</button></div>
+      <div class="cmd" data-os-panel="win" hidden><span class="dollar">&gt;</span><pre id="c-win">irm https://claude.ai/install.ps1 | iex</pre><button class="copy" data-copy="c-win">Копіювати</button></div>
+      <p class="note">Після встановлення відкрий новий термінал і перевір: <code class="inl">claude --version</code> має показати номер версії.</p>
+      <p class="note" style="margin-top:16px;color:var(--text);font-weight:600">Тепер створи папку для помічника і запусти в ній Claude Code. Під час першого запуску він попросить увійти в акаунт Claude через браузер.</p>
+      <div class="cmd" data-os-panel="mac"><span class="dollar">$</span><pre id="c-mac2">mkdir -p ~/jarvis &amp;&amp; cd ~/jarvis &amp;&amp; claude</pre><button class="copy" data-copy="c-mac2">Копіювати</button></div>
+      <div class="cmd" data-os-panel="win" hidden><span class="dollar">&gt;</span><pre id="c-win2">mkdir ~\jarvis; cd ~\jarvis; claude</pre><button class="copy" data-copy="c-win2">Копіювати</button></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- STEP 1 -->
+<section class="band dark" id="step-1"><div class="wrap">
+  <div class="step-head">
+    <div class="bignum">01</div>
+    <div><div class="eyebrow">Крок 1 · Мозок</div>
+      <h2 style="margin-top:12px">Підключи скіли</h2>
+      <p class="lead">Кожна задача живе в окремому маленькому скілі: один файл SKILL.md. Claude Code підвантажує його тільки тоді, коли він потрібен. Тому п'ять маленьких скілів працюють краще, ніж один величезний промпт.</p></div>
+  </div>
+  <div class="step-body">
+    <div class="result" style="grid-column:1/-1"><div class="eyebrow">Що отримаєш</div><p>П'ять скілів під твій реальний день: ранковий бриф, план, цифри, тренди і запис у нотатки. Потрібний спрацьовує сам, без того, щоб ти його називав.</p></div>
+    <div class="prompt">
+      <div class="prompt-top"><span class="eyebrow">Встав у Claude Code</span><button class="copy" data-copy="p1">Копіювати промпт</button></div>
+<pre id="p1">Ти налаштовуєш шар скілів для мого персонального AI-помічника JARVIS.
+
+Створи в ~/.claude/skills/ набір маленьких скілів Claude Code. Кожен скіл це окрема папка з одним файлом SKILL.md: зверху YAML-заголовок (name, description), нижче коротко, що саме скіл робить і коли має спрацьовувати.
+
+Почни з п'яти:
+1. inbox: ранковий бриф. Переглядає пошту й календар і повертає три речі, які сьогодні справді потребують мене.
+2. plan: записує три головні пріоритети дня в markdown-файл з датою.
+3. metrics: збирає мої цифри з сервісів, де вони лежать, і дає короткий текстовий підсумок. Спитай, які це сервіси і де доступи.
+4. trends: проглядає джерела, які мені важливі, і показує тільки те, що змінилося з учора.
+5. vault: читає і записує в мою папку з нотатками. Інші скіли зберігають свої результати через нього.
+
+Правила:
+- Один скіл = одна задача. Так підвантажується лише потрібний, і контекст лишається чистим.
+- В описі кожного скіла чітко вкажи, коли він спрацьовує, щоб потрібний запускався без того, щоб я його називав.
+- Нічого не записуй поза папкою з нотатками, не спитавши мене.
+
+Перш ніж писати скіли, розпитай мене, чим я займаюся щодня, і підлаштуй ці п'ять під мою реальну роботу, а не під шаблон.</pre>
+    </div>
+    <div class="info"><h4>Як перевірити</h4><ul>
+      <li>У папці <code class="inl">~/.claude/skills</code> з'явилося 5 папок, у кожній SKILL.md.</li>
+      <li>Напиши в Claude Code «сплануй мій день». Має спрацювати скіл plan, хоча ти його не називав.</li>
+    </ul></div>
+    <div class="info warn"><h4>Якщо щось не так</h4><ul>
+      <li>Скіл не спрацьовує: вийди з Claude Code командою <code class="inl">/exit</code> і запусти <code class="inl">claude</code> знову, щоб він перечитав скіли.</li>
+      <li>Спрацьовує не той скіл: попроси «зроби опис скіла plan конкретнішим, щоб він спрацьовував тільки на запити про план дня».</li>
+      <li>Пошта й календар поки не підключені: це нормально. Попроси Claude Code допомогти підключити їх, коли дійдеш до скіла inbox.</li>
+    </ul></div>
+    <div class="done-row"><button class="check" data-step="1" aria-pressed="false"><span class="box"></span>Крок 1 готовий</button></div>
+  </div>
+</div></section>
+
+<!-- STEP 2 -->
+<section class="band light" id="step-2"><div class="wrap">
+  <div class="step-head">
+    <div class="bignum"><span>02</span></div>
+    <div><div class="eyebrow">Крок 2 · Пам'ять</div>
+      <h2 style="margin-top:12px">Збери пам'ять</h2>
+      <p class="lead">Одна папка, три розділи: raw для всього зібраного, wiki для того, що він зрозумів, outputs для всього, що він зробив. Нотатки пов'язані між собою, тому він швидко знаходить потрібне. І все це звичайний markdown, який ти можеш прочитати. Якщо чогось немає в нотатках, значить, цього не було.</p></div>
+  </div>
+  <div class="step-body">
+    <div class="result" style="grid-column:1/-1"><div class="eyebrow">Що отримаєш</div><p>Папку <code class="inl">~/jarvis/vault</code>, яку відкриваєш в Obsidian і бачиш усе, що помічник зібрав і зробив, разом із графом зв'язків.</p></div>
+    <div class="prompt">
+      <div class="prompt-top"><span class="eyebrow">Встав у Claude Code</span><button class="copy" data-copy="p2">Копіювати промпт</button></div>
+<pre id="p2">Налаштуй пам'ять для мого AI-помічника як звичайне сховище markdown-файлів, яке я відкриватиму в Obsidian.
+
+Створи папку ~/jarvis/vault з такою структурою:
+
+vault/
+  raw/      усе зібране як є: транскрипти, нотатки, вивантаження
+  wiki/     вичищені знання, одна сторінка на тему, оновлюється з часом
+  outputs/  усе, що видає система: звіти, чернетки, плани, з датою
+
+Правила:
+- Тільки markdown-файли, ніякої бази даних. Я маю змогу прочитати все в звичайному редакторі.
+- На початку кожної сторінки YAML-заголовок: title, type, tags, created, updated, summary.
+- Сторінки посилаються одна на одну через [[вікі-посилання]], щоб сховище стало графом, а не купою файлів.
+- Усе, що створює будь-який скіл, лягає в outputs/ з датою в назві файлу.
+- Веди index.md зі списком усіх сторінок і одним рядком опису до кожної, і log.md, куди тільки дописуються зміни.
+
+Потім створи в корені сховища CLAUDE.md з цими правилами, щоб кожна наступна сесія спершу читала схему, а вже потім щось записувала. Онови скіл vault, щоб він працював саме з цією папкою.
+
+Наприкінці покажи дерево папок і поясни, що куди йде.</pre>
+    </div>
+    <div class="info"><h4>Як перевірити</h4><ul>
+      <li>В Obsidian натисни «Open folder as vault» і вибери <code class="inl">~/jarvis/vault</code>. Мають бути raw, wiki, outputs, index.md і log.md.</li>
+      <li>Скажи Claude Code «запиши ідею: зробити розсилку для клієнтів». Нова нотатка з'являється в сховищі, а в log.md новий рядок.</li>
+      <li>Увімкни Graph view в Obsidian. Через кілька днів роботи там з'явиться мережа зв'язків.</li>
+    </ul></div>
+    <div class="info warn"><h4>Якщо щось не так</h4><ul>
+      <li>Не бачиш папку на Mac: у вікні вибору натисни Cmd+Shift+. щоб показати приховані папки, або шукай jarvis у своїй домашній папці.</li>
+      <li>Нотатки лягають не туди: скажи «перечитай CLAUDE.md у сховищі і перенеси файли за правилами».</li>
+    </ul></div>
+    <div class="done-row"><button class="check" data-step="2" aria-pressed="false"><span class="box"></span>Крок 2 готовий</button></div>
+  </div>
+</div></section>
+
+<!-- STEP 3 -->
+<section class="band dark" id="step-3"><div class="wrap">
+  <div class="step-head">
+    <div class="bignum">03</div>
+    <div><div class="eyebrow">Крок 3 · Голос</div>
+      <h2 style="margin-top:12px">Додай голос</h2>
+      <p class="lead">Затискаєш клавішу, говориш, відпускаєш. Локальна модель розпізнає мову, локальний голос відповідає вголос. Аудіо не виходить за межі твого комп'ютера, це безкоштовно і без очікування відповіді від сервера. Саме тут інструмент стає помічником, з яким ти розмовляєш.</p></div>
+  </div>
+  <div class="step-body">
+    <div class="result" style="grid-column:1/-1"><div class="eyebrow">Що отримаєш</div><p>Одну команду, яка запускає голосовий режим: тримаєш клавішу, кажеш українською «що в мене сьогодні», і чуєш відповідь.</p></div>
+    <div class="prompt">
+      <div class="prompt-top"><span class="eyebrow">Встав у Claude Code</span><button class="copy" data-copy="p3">Копіювати промпт</button></div>
+<pre id="p3">Додай до мого помічника голос, щоб я міг говорити з ним замість того, щоб друкувати.
+
+Вимоги:
+- Push-to-talk: затискаю клавішу, говорю, відпускаю, і він виконує.
+- Розпізнавання мови працює локально: whisper.cpp або faster-whisper. Аудіо не виходить за межі мого комп'ютера.
+- Озвучення теж локальне: Piper або Kokoro. Він відповідає вголос.
+- Я говорю українською. Підбери модель розпізнавання, яка добре розуміє українську, і український голос для озвучення, якщо такий є.
+- Розпізнаний текст одразу йде в Claude Code як запит, а відповідь озвучується.
+
+Веди мене по кроках у такому порядку:
+1. Перевір, що в мене вже встановлено і що потягне мій комп'ютер.
+2. Встанови модель розпізнавання і протестуй її на записі.
+3. Встанови голос для озвучення і протестуй його.
+4. Налаштуй гарячу клавішу і з'єднай увесь цикл.
+5. Дай мені одну команду, яка запускає все разом.
+
+Пояснюй кожен крок і зупиняйся, щоб я підтвердив, перш ніж щось встановлювати.</pre>
+    </div>
+    <div class="info"><h4>Як перевірити</h4><ul>
+      <li>Запусти команду, яку дав Claude Code, затисни клавішу і скажи «який у мене план на сьогодні».</li>
+      <li>Ти маєш почути відповідь, а в терміналі побачити розпізнаний текст свого запиту.</li>
+    </ul></div>
+    <div class="info warn"><h4>Якщо щось не так</h4><ul>
+      <li>Тиша або помилка мікрофона: дай терміналу доступ до мікрофона. На Mac: Системні параметри → Конфіденційність і безпека → Мікрофон. Для гарячої клавіші там же увімкни «Універсальний доступ».</li>
+      <li>Погано розпізнає українську: попроси поставити більшу модель whisper, наприклад medium. Вона точніша, але повільніша.</li>
+      <li>Відповідає занадто повільно: попроси меншу модель або перевір, чи модель використовує відеокарту чи чип Mac.</li>
+    </ul></div>
+    <div class="done-row"><button class="check" data-step="3" aria-pressed="false"><span class="box"></span>Крок 3 готовий</button></div>
+  </div>
+</div></section>
+
+<!-- STEP 4 -->
+<section class="band light" id="step-4"><div class="wrap">
+  <div class="step-head">
+    <div class="bignum"><span>04</span></div>
+    <div><div class="eyebrow">Крок 4 · Екран</div>
+      <h2 style="margin-top:12px">Збери екран</h2>
+      <p class="lead">Один екран з усім, що він знає: показники, команди, розклад і стан голосу. Дані підтягуються прямо з твоїх нотаток. Запускаєш, відкриваєш і далі допрацьовуєш його голосом. Від початку до кінця це один вечір.</p></div>
+  </div>
+  <div class="step-body">
+    <div class="result" style="grid-column:1/-1"><div class="eyebrow">Що отримаєш</div><p>Темну панель, яку тримаєш відкритою весь день. Вона відкривається однією командою і завжди показує актуальні дані зі сховища.</p></div>
+    <div class="prompt">
+      <div class="prompt-top"><span class="eyebrow">Встав у Claude Code</span><button class="copy" data-copy="p4">Копіювати промпт</button></div>
+<pre id="p4">Зроби для мого AI-помічника темний екран-панель (HUD) у стилі термінала.
+
+Один екран, без вкладок. Блоки:
+- Показники: цифри, які я відстежую, з поточним значенням і лінією тренду.
+- Команди: усі доступні скіли та їхній статус.
+- Розклад: сьогоднішній день, поточний блок підсвічений.
+- Голос: стан мікрофона й динаміка, щоб я бачив, коли він слухає.
+- Усі дані беруться з мого сховища ~/jarvis/vault, а не вписані вручну.
+
+Стиль: темний, моноширинний шрифт, спокійний. Має виглядати як приладова панель, яку я тримаю відкритою весь день, а не як демо дашборду. Без декоративних графіків, які нічого не показують.
+
+Читай дані прямо зі сховища, щоб екран завжди був актуальним. Потім дай мені одну команду, щоб його відкрити, і поясни, як змінювати його голосом.</pre>
+    </div>
+    <div class="info"><h4>Як перевірити</h4><ul>
+      <li>Відкрий екран командою від Claude Code. У розкладі твій реальний день, а не приклад.</li>
+      <li>Скажи голосом «додай на екран блок з погодою». Після оновлення сторінки блок має з'явитися.</li>
+    </ul></div>
+    <div class="info warn"><h4>Якщо щось не так</h4><ul>
+      <li>На екрані вигадані дані: скажи «прибери всі тестові дані, бери тільки те, що є в ~/jarvis/vault».</li>
+      <li>Порожні блоки: це нормально в перший день. Попрацюй з помічником день-два, і нотаток стане достатньо.</li>
+    </ul></div>
+    <div class="done-row"><button class="check" data-step="4" aria-pressed="false"><span class="box"></span>Крок 4 готовий</button></div>
+  </div>
+</div></section>
+
+<section class="band white"><div class="wrap">
+  <div class="eyebrow">Коли все зібрано</div>
+  <h2 style="margin-top:14px">Як виглядає <span class="hl">звичайний день</span></h2>
+  <p class="lead">Коли чотири частини з'єднані, день іде голосом. Приблизно такий ритм у нього встановлюється.</p>
+  <div class="day">
+    <div class="slot"><div class="t">07:00</div><div><b>Ранковий бриф</b><span>Пошта, календар і новини, які змінились, вголос, поки ти робиш каву.</span></div></div>
+    <div class="slot"><div class="t">09:00</div><div><b>План на день</b><span>Три головні пріоритети записуються в нотатки з датою.</span></div></div>
+    <div class="slot"><div class="t">14:00</div><div><b>Цифри</b><span>Твої показники без жодного відкритого дашборду.</span></div></div>
+    <div class="slot"><div class="t">19:00</div><div><b>Закрити день</b><span>Підсумок записаний, завтрашній день у черзі.</span></div></div>
+    <div class="slot"><div class="t">Будь-коли</div><div><b>Спитай що завгодно</b><span>Він пам'ятає все, що будь-коли записав у нотатки.</span></div></div>
+  </div>
+  <div class="prompt bonus" style="background:var(--ink)">
+    <div class="prompt-top"><span class="eyebrow">Бонус: бриф о 7:00 сам по собі</span><button class="copy" data-copy="p5">Копіювати промпт</button></div>
+<pre id="p5">Налаштуй, щоб щодня о 7:00 автоматично запускався скіл inbox, а результат зберігався в ~/jarvis/vault/outputs/ з датою в назві.
+
+Використай вбудований планувальник моєї системи: launchd на Mac, cron на Linux або Планувальник завдань на Windows.
+
+Спершу поясни, що саме створиш і як це потім вимкнути, і спитай дозволу. Після налаштування запусти тестовий прогін, щоб я побачив результат.</pre>
+  </div>
+</div></section>
+
+<section class="band dark"><div class="wrap">
+  <div class="eyebrow">Порядок важливий</div>
+  <h2 style="margin-top:14px">Збирай <span class="hl">саме в такому порядку</span></h2>
+  <p class="lead">Кожна частина без попередньої марна. Скіли без місця, куди писати, це просто промпти. А екран без даних за ним це заставка. Зосередься на з'єднанні частин, а не на прикрасах.</p>
+  <div class="order">
+    <div class="chip"><b>01</b>Мозок</div><span class="arr">→</span>
+    <div class="chip"><b>02</b>Пам'ять</div><span class="arr">→</span>
+    <div class="chip"><b>03</b>Голос</div><span class="arr">→</span>
+    <div class="chip"><b>04</b>Екран</div>
+  </div>
+</div></section>
+
+<section class="band light"><div class="wrap">
+  <div class="eyebrow">Часті питання</div>
+  <h2 style="margin-top:14px">Якщо щось незрозуміло</h2>
+  <div class="faq">
+    <details><summary>Скільки це коштує?</summary><p>Тобі потрібен платний план Claude (Pro або вищий), бо Claude Code на безкоштовному плані недоступний. Obsidian безкоштовний. Голос працює на твоєму комп'ютері через відкриті моделі, тому за нього теж не платиш.</p></details>
+    <details><summary>Це працює на Windows?</summary><p>Так. Claude Code працює на Windows 10 і новіших. Для кроку з голосом просто скажи Claude Code, що в тебе Windows, і він підбере інструменти та гарячу клавішу під неї.</p></details>
+    <details><summary>Я ніколи не працював у терміналі. Впораюсь?</summary><p>Так. Від тебе потрібно тільки вставити команду встановлення і далі промпти. Усе інше робить Claude Code, а перед встановленням чогось він питає дозволу. Якщо щось незрозуміло, просто спитай його «поясни простіше, що ти зараз робиш».</p></details>
+    <details><summary>Чи безпечно давати йому доступ до пошти й файлів?</summary><p>Claude Code питає дозволу перед командами і змінами файлів. Читай, що він пропонує, перед тим як погодитись. У промптах ми прямо прописали, що поза папкою з нотатками він нічого не записує без твого підтвердження.</p></details>
+    <details><summary>Він розуміє українську голосом?</summary><p>Так, моделі whisper розпізнають українську. Якщо якість не влаштовує, попроси Claude Code поставити більшу модель, наприклад medium. Для озвучення він підбере український голос, якщо такий є у вибраному рушії.</p></details>
+    <details><summary>Можна взяти не всі кроки?</summary><p>Можна зупинитися після будь-якого. Мозок і пам'ять уже дають робочого помічника в терміналі. Голос і екран роблять його зручнішим. Але порядок не міняй: кожен крок спирається на попередній.</p></details>
+  </div>
+</div></section>
+
+<section class="band dark cta"><div class="wrap">
+  <div class="eyebrow">AI LAB</div>
+  <h2 style="margin-top:14px">Хочеш опанувати Claude <span class="hl">на 200%?</span></h2>
+  <p class="lead">На курсі по Claude розбираємо скіли, проєкти, конектори і Claude Code на реальних задачах. Без води і з підтримкою, поки не запрацює.</p>
+  <a class="btn btn-gold" href="https://ai-lab.com.ua/claude" target="_blank" rel="noopener">Дізнатися про курс</a>
+  <div class="foot"><span>AI LAB · ai-lab.com.ua</span><span>Гайд «JARVIS на Claude Code»</span></div>
+</div></section>
+</main>
+
+<script>
+(function(){
+  // copy buttons
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy); var txt=el.textContent;
+      var label=b.textContent;
+      function ok(){b.textContent='Скопійовано ✓';b.classList.add('ok');setTimeout(function(){b.textContent=label;b.classList.remove('ok');},1800);}
+      function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Виділено, натисни Cmd/Ctrl+C';setTimeout(function(){b.textContent=label;},2600);}
+      try{navigator.clipboard.writeText(txt).then(ok,fallback);}catch(e){fallback();}
+    });
+  });
+  // OS tabs
+  function setOS(os){
+    document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.os===os));});
+    document.querySelectorAll('[data-os-panel]').forEach(function(p){p.hidden=p.dataset.osPanel!==os;});
+    try{localStorage.setItem('jarvis-os',os);}catch(e){}
+  }
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){setOS(t.dataset.os);});});
+  var os=null;try{os=localStorage.getItem('jarvis-os');}catch(e){}
+  if(!os){os=/Win/i.test(navigator.platform||navigator.userAgent)?'win':'mac';}
+  setOS(os);
+  // step progress
+  var KEY='jarvis-steps',done={};
+  try{done=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){done={};}
+  function render(){
+    var n=0;
+    document.querySelectorAll('.check').forEach(function(c){var on=!!done[c.dataset.step];c.setAttribute('aria-pressed',String(on));if(on)n++;});
+    document.querySelectorAll('[data-dot]').forEach(function(d){d.classList.toggle('done',!!done[d.dataset.dot]);});
+    document.getElementById('progTxt').textContent=n===4?'Усі 4 кроки готові':'Пройдено '+n+' з 4';
+  }
+  document.querySelectorAll('.check').forEach(function(c){
+    c.addEventListener('click',function(){done[c.dataset.step]=!done[c.dataset.step];try{localStorage.setItem(KEY,JSON.stringify(done));}catch(e){}render();});
+  });
+  render();
+
+  // ---------- motion ----------
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  var sel = '.band .eyebrow,.band h1,.band h2,.band .lead,.hero-cta,.stat,.part,.pre-card,.step-head .bignum,.result,.prompt,.info,.done-row,.slot,.order .chip,.order .arr,details,.cta .btn,.foot';
+  var els = [].slice.call(document.querySelectorAll(sel));
+  var groups = new Map();
+  els.forEach(function(el){
+    el.classList.add('reveal');
+    var k = el.parentElement; var i = groups.get(k)||0; groups.set(k,i+1);
+    el.style.setProperty('--d', Math.min(i*0.08, 0.48)+'s');
+  });
+  function show(el){ el.classList.add('in'); if(el.classList.contains('stat')) countUp(el); }
+  if(reduce || !('IntersectionObserver' in window)){ els.forEach(show); }
+  else{
+    var io = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target);} }); }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    els.forEach(function(el){ io.observe(el); });
+    // safety net: never leave content hidden
+    setTimeout(function(){ els.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top < innerHeight) show(el); }); }, 1600);
+  }
+  function countUp(el){
+    var n = el.querySelector('.n'); if(!n || n.dataset.done) return; n.dataset.done = 1;
+    var m = n.textContent.match(/^(\d+)(.*)$/); if(!m || reduce) return;
+    var to = +m[1], rest = m[2]; if(to < 2) return;
+    var t0 = performance.now(), dur = 900;
+    (function f(t){ var p = Math.min(1,(t-t0)/dur); var e = 1-Math.pow(1-p,3); n.textContent = Math.round(to*e)+rest; if(p<1) requestAnimationFrame(f); })(t0);
+  }
+  // header + scroll progress
+  var hdr = document.getElementById('hdr'), sp = document.getElementById('sprog'), ticking = false;
+  function onScroll(){
+    var h = document.documentElement; var max = h.scrollHeight - innerHeight;
+    if(sp) sp.style.transform = 'scaleX('+(max>0 ? Math.min(1, scrollY/max) : 0)+')';
+    hdr.classList.toggle('scrolled', scrollY > 24); ticking = false;
+  }
+  addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
