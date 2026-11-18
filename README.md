@@ -103,9 +103,9 @@ Basic відкриває модулі 01–06; 07–09, сертифікат, ч
 
 | Файл | Що це | Редакція |
 |---|---|---|
-| `legal/dogovir-oferta.pdf` | оферта курсу «AI Lab» | 11.11.2026 |
-| `legal/dogovir-oferta-claude.pdf` | оферта «Курс по Claude» | 12.11.2026 |
-| `legal/polityka-konfidentsiynosti.pdf` | політика конфіденційності | 11.11.2026 |
+| `legal/dogovir-oferta.pdf` | оферта курсу «AI Lab» | 18.11.2026 |
+| `legal/dogovir-oferta-claude.pdf` | оферта «Курс по Claude» | 18.11.2026 |
+| `legal/polityka-konfidentsiynosti.pdf` | політика конфіденційності | 18.11.2026 |
 
 Кожна посадочна посилається на свою оферту: `claude/` — на `dogovir-oferta-claude.pdf`,
 головна і `automation/` — на `dogovir-oferta.pdf`. Політика одна на всі сторінки.
